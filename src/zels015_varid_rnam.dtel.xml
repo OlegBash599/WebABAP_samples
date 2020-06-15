@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZELS015_VARID_RNAM</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>ZDLS015_VARID_RNAM</DOMNAME>
+    <HEADLEN>55</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>15</SCRLEN2>
+    <SCRLEN3>20</SCRLEN3>
+    <DDTEXT>Name of Variant Variable</DDTEXT>
+    <REPTEXT>Variable Name</REPTEXT>
+    <SCRTEXT_S>Var. Name</SCRTEXT_S>
+    <SCRTEXT_M>Variable Name</SCRTEXT_M>
+    <SCRTEXT_L>Variable Name</SCRTEXT_L>
+    <APPLCLASS>SAB4</APPLCLASS>
+    <DTELMASTER>E</DTELMASTER>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+  </asx:values>
+ </asx:abap>
+</abapGit>
