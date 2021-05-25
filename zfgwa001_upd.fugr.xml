@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Update Tabs</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFGWA001_UPDTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFGWA001_UPD</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>Z_WA001_VAR_FILE_UPD</FUNCNAME>
+     <UPDATE_TASK>1</UPDATE_TASK>
+     <SHORT_TEXT>Variable Tabs Update</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_ACTION</PARAMETER>
+       <DEFAULT>&apos;M&apos;</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>CHAR1</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IT_VAR_FILE</PARAMETER>
+       <TYP>ZTWA001_VARFILE_TAB</TYP>
+      </RSIMP>
+     </IMPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_ACTION</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Single-Character Flag</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_VAR_FILE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>ZTWA001_VARFILE -&gt; tab</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_WA001_VAR_TAB_UPD</FUNCNAME>
+     <UPDATE_TASK>1</UPDATE_TASK>
+     <SHORT_TEXT>Variable Tabs Update</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_ACTION</PARAMETER>
+       <DEFAULT>&apos;M&apos;</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>CHAR1</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IT_VARID</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>ZTWA001_VARID_TAB</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IT_VARVAL</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>ZTWA001_VARVAL_TAB</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IT_VARLOG</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>ZTWA001_VARLOG_TAB</TYP>
+      </RSIMP>
+     </IMPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_ACTION</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Single-Character Flag</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_VARID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>ZTWA001_VARID -&gt; tab</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_VARVAL</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>ZTWA001_VARVAL -&gt; tab</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_VARLOG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>ZTWA001_VARLOG -&gt; tab</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
