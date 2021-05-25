@@ -4,6 +4,7 @@
   <asx:values>
    <DEVC>
     <CTEXT>Variables and UI5</CTEXT>
+    <RESTRICTED>X</RESTRICTED>
    </DEVC>
   </asx:values>
  </asx:abap>
