@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Z_WA001_VARMNG_SEL_SCRN</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFGWA001_SCRND01</SOBJ_NAME>
+    <SOBJ_NAME>LZFGWA001_SCRND02</SOBJ_NAME>
+    <SOBJ_NAME>LZFGWA001_SCRNTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFGWA001_SCRN</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>Z_WA001_MNGVAR_SEL_SCRN</FUNCNAME>
+     <SHORT_TEXT>Selection Screen: Manage Variables</SHORT_TEXT>
+     <CHANGING>
+      <RSCHA>
+       <PARAMETER>CO_SCR</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>REF TO ZCL_WA001_MNGVAR_SCR_DTO</TYP>
+       <REF_CLASS>X</REF_CLASS>
+      </RSCHA>
+      <RSCHA>
+       <PARAMETER>CV_RC</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>SYSUBRC</TYP>
+      </RSCHA>
+     </CHANGING>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>CO_SCR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>DTO for SelScreen</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CV_RC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Return Code</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_WA001_SEL_OPTIONS</FUNCNAME>
+     <SHORT_TEXT>Select Options for Values</SHORT_TEXT>
+     <CHANGING>
+      <RSCHA>
+       <PARAMETER>CS_VAR_HEAD</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ZTWA001_VARID</TYP>
+      </RSCHA>
+      <RSCHA>
+       <PARAMETER>CT_RANGE_CHAR</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ZTTWA001_VARVALUES_RNG</TYP>
+      </RSCHA>
+      <RSCHA>
+       <PARAMETER>SCREEN_SYSUBRC</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>SYSUBRC</TYP>
+      </RSCHA>
+     </CHANGING>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>CS_VAR_HEAD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Variables ID (header): id and description</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CT_RANGE_CHAR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>ZSWA001_VARVALUES_RNG -&gt; tab</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SCREEN_SYSUBRC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Return Code</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

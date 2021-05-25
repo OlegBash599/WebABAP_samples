@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZEWA001_VAR_SIGN</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>ZDWA001_VAR_SIGN</DOMNAME>
+    <HEADLEN>55</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>20</SCRLEN2>
+    <SCRLEN3>40</SCRLEN3>
+    <DDTEXT>WebABAP: SignVariable (Incl/Excl)</DDTEXT>
+    <REPTEXT>SignVariable (Incl/Excl)</REPTEXT>
+    <SCRTEXT_S>SgnVr(I/E)</SCRTEXT_S>
+    <SCRTEXT_M>SignVar(Incl/Excl)</SCRTEXT_M>
+    <SCRTEXT_L>SignVariable (Incl/Excl)</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+  </asx:values>
+ </asx:abap>
+</abapGit>
