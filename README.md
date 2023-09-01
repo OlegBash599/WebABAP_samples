@@ -26,5 +26,4 @@ Samples for webinar WebABAP
 2) OData composition-based implementation
 3) UI5-samples for Data Updation
 4) Variables Manager in ABAP
-
-
+5) [welcome to: ABAP-club чат](https://t.me/ABAPclub)
