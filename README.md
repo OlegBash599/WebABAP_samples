@@ -8,7 +8,7 @@
 
 ## Мини-вебинар:
 1) Пример unit-теста для сущности
-2) <a href="[http://example.com/](https://github.com/OlegBash599/WebABAP_samples/tree/master/PostMan_samples)" target="_blank"> Пример коллекции postman для прогона тестирования </a>
+2) [Пример коллекции postman для прогона тестирования]([https://sappro.sapland.ru/author-column/20772](http://example.com/](https://github.com/OlegBash599/WebABAP_samples/tree/master/PostMan_samples))
 
 
 ## Видео к мини-вебинару
