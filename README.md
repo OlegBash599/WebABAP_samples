@@ -4,6 +4,7 @@
 2) OData composition-based implementation
 3) UI5-samples for Data Updation
 4) Variables Manager in ABAP
+5) [Колонка по Webinar на sapland.ru](https://sappro.sapland.ru/author-column/20772)
 
 ## Мини-вебинар:
 1) Пример unit-теста для сущности
@@ -11,7 +12,7 @@
 
 
 ## Видео к мини-вебинару
-[MiniWebinar Video](https://sappro.sapland.ru/kb/webinars/testirovanie-crudq-operatsii-v-sap-gateway-i-unit-testirovanie-v-odata-v2.html){:target="_blank"}
+[MiniWebinar Video](https://sappro.sapland.ru/kb/webinars/testirovanie-crudq-operatsii-v-sap-gateway-i-unit-testirovanie-v-odata-v2.html)
 
 ## что-то непонятно/недосказано или хочется высказаться?
 [ABAP-club чат](https://t.me/ABAPclub)
