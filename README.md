@@ -6,13 +6,13 @@
 4) Variables Manager in ABAP
 
 ## Мини-вебинар:
-1) Пример unit-теста для сущности ( https://github.com/OlegBash599/WebABAP_samples/tree/master/PostMan_samples )
-2) Пример коллекции postman для прогона тестирования
+1) Пример unit-теста для сущности
+2) [Пример коллекции postman для прогона тестирования](https://github.com/OlegBash599/WebABAP_samples/tree/master/PostMan_samples)
 
 
 
 ## Видео к мини-вебинару
-https://sappro.sapland.ru/kb/webinars/testirovanie-crudq-operatsii-v-sap-gateway-i-unit-testirovanie-v-odata-v2.html
+[MiniWebinar Video](https://sappro.sapland.ru/kb/webinars/testirovanie-crudq-operatsii-v-sap-gateway-i-unit-testirovanie-v-odata-v2.html)
 
 ## что-то непонятно/недосказано или хочется высказаться?
 [ABAP-club чат](https://t.me/ABAPclub)
