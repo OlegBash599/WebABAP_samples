@@ -17,7 +17,7 @@ https://sappro.sapland.ru/kb/webinars/testirovanie-crudq-operatsii-v-sap-gateway
 
 
 ====english version below ======
-# WebABAP_samples
+# WebABAP: developing odata-services and web services in NetWeaver
 Samples for webinar WebABAP
 
 1) ODATA v2 Basic implementation in ABAP
