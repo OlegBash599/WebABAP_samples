@@ -1,0 +1,302 @@
+{
+	"info": {
+		"_postman_id": "c55ce0d7-7de7-4186-baad-7477aa158f21",
+		"name": "webaabap_1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7581105"
+	},
+	"item": [
+		{
+			"name": "sample_init_basic_auth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Success answer\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "qazxsw21",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "DEVELOPER",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{nw_host}}/sap/opu/odata/sap/zweb_abap_demo1_srv/$metadata?sap-client=900",
+					"host": [
+						"{{nw_host}}"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"sap",
+						"zweb_abap_demo1_srv",
+						"$metadata"
+					],
+					"query": [
+						{
+							"key": "sap-client",
+							"value": "900"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "num_of_page_records_50",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"num_of_paging\", 51);\r",
+							"pm.test(\"Number of records in no skip/offset request\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect((jsonData['d']['results']).length).to.equal(pm.globals.get(\"num_of_paging\"));\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{nw_host}}/sap/opu/odata/sap/ZWEB_ABAP_DEMO1_SRV/VarHeadSet?$format=json&sap-client=900 ",
+					"host": [
+						"{{nw_host}}"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"sap",
+						"ZWEB_ABAP_DEMO1_SRV",
+						"VarHeadSet"
+					],
+					"query": [
+						{
+							"key": "$format",
+							"value": "json"
+						},
+						{
+							"key": "sap-client",
+							"value": "900 "
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "03_ReadEntity - GetEntity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Success answer\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.globals.set(\"NumOfValues_APO_N15\", 2);\r",
+							"pm.test(\"Number of records in no skip/offset request\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData['d']['NumOfValues']).to.equal(pm.globals.get(\"NumOfValues_APO_N15\"));\r",
+							"});\r",
+							"pm.globals.unset(\"NumOfValues_APO_N15\");\r",
+							"\r",
+							"\r",
+							"// pm.test(\"x-csrf-token is present\", function () {\r",
+							"//     pm.response.to.have.header(\"x-csrf-token\");\r",
+							"//     pm.globals.set(\"xcsrf_token\", pm.response.header(\"x-csrf-token\"));\r",
+							"// });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-csrf-token",
+						"value": "fetch",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{nw_host}}/sap/opu/odata/sap/ZWEB_ABAP_DEMO1_SRV/VarHeadSet('ZAPO_N15')?$format=json",
+					"host": [
+						"{{nw_host}}"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"sap",
+						"ZWEB_ABAP_DEMO1_SRV",
+						"VarHeadSet('ZAPO_N15')"
+					],
+					"query": [
+						{
+							"key": "$format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "04_CreateEntity",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const odataGetToken = {\r",
+							"  url: pm.variables.get(\"nw_host\") + \"/sap/opu/odata/sap/ZWEB_ABAP_DEMO1_SRV/VarHeadSet('ZAPO_N15')?$format=json\",\r",
+							"  method: \"GET\",\r",
+							"  header: \"x-csrf-token:fetch\"\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(odataGetToken, function (err, res) {\r",
+							"  // console.log(res.headers.get(\"x-csrf-token\"));\r",
+							"  pm.request.headers.add({\r",
+							"      key: 'x-csrf-token',\r",
+							"      value: res.headers.get(\"x-csrf-token\")\r",
+							"  });\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Success answer\", function() {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<entry xml:base=\"http://ECCEHP8.TRAINING.COM:8000/sap/opu/odata/sap/ZWEB_ABAP_DEMO1_SRV/\" xmlns=\"http://www.w3.org/2005/Atom\" xmlns:m=\"http://schemas.microsoft.com/ado/2007/08/dataservices/metadata\" xmlns:d=\"http://schemas.microsoft.com/ado/2007/08/dataservices\">\r\n <id>http://ECCEHP8.TRAINING.COM:8000/sap/opu/odata/sap/ZWEB_ABAP_DEMO1_SRV/VarHeadSet('ZAPO_N15')</id>\r\n <title type=\"text\">VarHeadSet('ZAPO_N15')</title>\r\n <updated>2023-08-16T20:40:30Z</updated>\r\n <category term=\"ZWEB_ABAP_DEMO1_SRV.VarHead\" scheme=\"http://schemas.microsoft.com/ado/2007/08/dataservices/scheme\"/>\r\n <link href=\"VarHeadSet('ZAPO_N15')\" rel=\"self\" title=\"VarHead\"/>\r\n <link href=\"VarHeadSet('ZAPO_N15')/VarID2Values\" rel=\"http://schemas.microsoft.com/ado/2007/08/dataservices/related/VarID2Values\" type=\"application/atom+xml;type=feed\" title=\"VarID2Values\"/>\r\n <content type=\"application/xml\">\r\n  <m:properties>\r\n   <d:Name>ZAPO_XN99</d:Name>\r\n   <d:Description>Description for ZAPO_XN99</d:Description>\r\n   <d:VarType>3</d:VarType>\r\n   <d:VarTypeTx/>\r\n   <d:NumOfValues>2</d:NumOfValues>\r\n   <d:NumOfFiles>0</d:NumOfFiles>\r\n   <d:IsDel>false</d:IsDel>\r\n   <d:DebugIsOn>false</d:DebugIsOn>\r\n   <d:FastVal/>\r\n   <d:Cru>DEVELOPER</d:Cru>\r\n   <d:Crd>2023-08-16T00:00:00</d:Crd>\r\n   <d:Crt>PT14H14M39S</d:Crt>\r\n   <d:Chu>DEVELOPER</d:Chu>\r\n   <d:Chd>2023-08-16T00:00:00</d:Chd>\r\n   <d:Cht>PT14H14M39S</d:Cht>\r\n  </m:properties>\r\n </content>\r\n</entry>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{nw_host}}/sap/opu/odata/sap/ZWEB_ABAP_DEMO1_SRV/VarHeadSet",
+					"host": [
+						"{{nw_host}}"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"sap",
+						"ZWEB_ABAP_DEMO1_SRV",
+						"VarHeadSet"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{nw_pass}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{nw_login}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "nw_host",
+			"value": "http://192.168.1.91:8000",
+			"type": "string"
+		},
+		{
+			"key": "nw_login",
+			"value": "login",
+			"type": "string"
+		},
+		{
+			"key": "nw_pass",
+			"value": "nw_pass",
+			"type": "string"
+		}
+	]
+}
