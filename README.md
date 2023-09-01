@@ -19,7 +19,7 @@
 
 
 ### Ext-addition:
-1) [Alternatives To postman](https://blogs.sap.com/2023/08/17/alternatives-to-postman-for-exploratory-and-automated-api-testing/)
+1) [Alternatives to Postman for Exploratory and Automated API Testing by Klaus Haeuptle](https://blogs.sap.com/2023/08/17/alternatives-to-postman-for-exploratory-and-automated-api-testing/)
 2) [HTTP-tools for testing](https://thechief.io/c/editorial/top-10-http-benchmarking-and-load-testing-tools/)
 
 ====english version below ======
