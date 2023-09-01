@@ -6,7 +6,7 @@
 4) Variables Manager in ABAP
 
 ## Мини-вебинар:
-1) Пример unit-теста для сущности
+1) Пример unit-теста для сущности ( https://github.com/OlegBash599/WebABAP_samples/tree/master/PostMan_samples )
 2) Пример коллекции postman для прогона тестирования
 
 
