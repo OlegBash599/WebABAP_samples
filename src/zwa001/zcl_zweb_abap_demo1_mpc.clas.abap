@@ -6,9 +6,9 @@ class ZCL_ZWEB_ABAP_DEMO1_MPC definition
 public section.
 
   types:
-     TS_VARHEAD type ZSWA001_VAR_H_SRV .
-  types:
-TT_VARHEAD type standard table of TS_VARHEAD .
+    begin of TS_NEWFUNC,
+        PAR1 type string,
+    end of TS_NEWFUNC .
   types:
    begin of ts_text_element,
       artifact_name  type c length 40,       " technical name
@@ -19,6 +19,10 @@ TT_VARHEAD type standard table of TS_VARHEAD .
    end of ts_text_element .
   types:
          tt_text_elements type standard table of ts_text_element with key text_symbol .
+  types:
+     TS_VARHEAD type ZSWA001_VAR_H_SRV .
+  types:
+TT_VARHEAD type standard table of TS_VARHEAD .
   types:
      TS_VARVALUE type ZSWA001_VAR_VALS_SRV .
   types:
@@ -52,6 +56,9 @@ private section.
   methods DEFINE_ASSOCIATIONS
     raising
       /IWBEP/CX_MGW_MED_EXCEPTION .
+  methods DEFINE_ACTIONS
+    raising
+      /IWBEP/CX_MGW_MED_EXCEPTION .
 ENDCLASS.
 
 
@@ -73,6 +80,42 @@ model->set_schema_namespace( 'ZWEB_ABAP_DEMO1_SRV' ).
 define_varhead( ).
 define_varvalue( ).
 define_associations( ).
+define_actions( ).
+  endmethod.
+
+
+  method DEFINE_ACTIONS.
+*&---------------------------------------------------------------------*
+*&           Generated code for the MODEL PROVIDER BASE CLASS         &*
+*&                                                                     &*
+*&  !!!NEVER MODIFY THIS CLASS. IN CASE YOU WANT TO CHANGE THE MODEL  &*
+*&        DO THIS IN THE MODEL PROVIDER SUBCLASS!!!                   &*
+*&                                                                     &*
+*&---------------------------------------------------------------------*
+
+
+data:
+lo_action         type ref to /iwbep/if_mgw_odata_action,                 "#EC NEEDED
+lo_parameter      type ref to /iwbep/if_mgw_odata_parameter.              "#EC NEEDED
+
+***********************************************************************************************************************************
+*   ACTION - NewFunc
+***********************************************************************************************************************************
+
+lo_action = model->create_action( 'NewFunc' ).  "#EC NOTEXT
+*Set return entity type
+lo_action->set_return_entity_type( 'VarHead' ). "#EC NOTEXT
+*Set HTTP method GET or POST
+lo_action->set_http_method( 'GET' ). "#EC NOTEXT
+* Set return type multiplicity
+lo_action->set_return_multiplicity( '0' ). "#EC NOTEXT
+***********************************************************************************************************************************
+* Parameters
+***********************************************************************************************************************************
+
+lo_parameter = lo_action->create_input_parameter( iv_parameter_name = 'Par1'    iv_abap_fieldname = 'PAR1' ). "#EC NOTEXT
+lo_parameter->/iwbep/if_mgw_odata_property~set_type_edm_string( ).
+lo_action->bind_input_structure( iv_structure_name  = 'ZCL_ZWEB_ABAP_DEMO1_MPC=>TS_NEWFUNC' ). "#EC NOTEXT
   endmethod.
 
 
@@ -494,7 +537,7 @@ lo_entity_set->set_filter_required( abap_false ).
 *&---------------------------------------------------------------------*
 
 
-  CONSTANTS: lc_gen_date_time TYPE timestamp VALUE '20210517002149'.                  "#EC NOTEXT
+  CONSTANTS: lc_gen_date_time TYPE timestamp VALUE '20210526083333'.                  "#EC NOTEXT
   rv_last_modified = super->get_last_modified( ).
   IF rv_last_modified LT lc_gen_date_time.
     rv_last_modified = lc_gen_date_time.

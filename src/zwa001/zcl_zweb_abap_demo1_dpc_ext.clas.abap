@@ -50,6 +50,9 @@ CLASS ZCL_ZWEB_ABAP_DEMO1_DPC_EXT IMPLEMENTATION.
     DATA ls_srv_in TYPE zcl_zweb_abap_demo1_mpc=>ts_varhead.
 
     io_data_provider->read_entry_data( IMPORTING es_data = ls_srv_in ).
+
+
+
     MOVE-CORRESPONDING ls_srv_in TO er_entity.
 
   ENDMETHOD.
@@ -78,6 +81,8 @@ CLASS ZCL_ZWEB_ABAP_DEMO1_DPC_EXT IMPLEMENTATION.
 
       ENDCASE.
     ENDLOOP.
+
+    MESSAGE x000(cl).
 
   ENDMETHOD.
 
@@ -291,7 +296,7 @@ CLASS ZCL_ZWEB_ABAP_DEMO1_DPC_EXT IMPLEMENTATION.
     IF io_tech_request_context->has_count( ) EQ abap_true.
       es_response_context-count = lines( et_entityset[] ).
     ENDIF.
-    es_response_context-is_sap_data_exists_calculated = abap_true.
+    " es_response_context-is_sap_data_exists_calculated = abap_true.
     "es_response_context-skiptoken
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

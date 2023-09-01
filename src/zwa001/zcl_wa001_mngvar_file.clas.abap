@@ -12,7 +12,17 @@ CLASS zcl_wa001_mngvar_file DEFINITION
     METHODS upload_file
       EXPORTING ev_rc TYPE sysubrc.
 
+    METHODS upload_file_from_odata
+      IMPORTING iv_file_orig_name TYPE string
+                iv_mime_type      TYPE string
+                iv_file_xstring   TYPE xstring
+      EXPORTING ev_rc             TYPE sysubrc.
+
     METHODS download_file.
+    METHODS get_file_with_info
+      EXPORTING ev_file_xstring       TYPE xstring
+                ev_file_original_name TYPE string
+                ev_file_mime          TYPE string.
   PROTECTED SECTION.
   PRIVATE SECTION.
     DATA mv_var_name TYPE zewa001_var_name.
@@ -21,8 +31,9 @@ CLASS zcl_wa001_mngvar_file DEFINITION
       RETURNING VALUE(rv_val) TYPE string.
 
     METHODS get_pc_file_bin_data
-      IMPORTING iv_file_path  TYPE string
-      RETURNING VALUE(rv_val) TYPE xstring.
+      IMPORTING iv_file_path   TYPE string
+      EXPORTING ev_val         TYPE xstring
+                ev_file_length TYPE syindex.
 
     METHODS get_file_name
       IMPORTING iv_file_path  TYPE string
@@ -30,7 +41,9 @@ CLASS zcl_wa001_mngvar_file DEFINITION
 
     METHODS save_file2var
       IMPORTING iv_file_name    TYPE string
-                iv_file_xstring TYPE xstring.
+                iv_file_xstring TYPE xstring
+                iv_file_size    TYPE syindex
+                iv_mime_type    TYPE string OPTIONAL.
 
     METHODS get_guid
       RETURNING VALUE(rv_val) TYPE char32.
@@ -69,6 +82,7 @@ CLASS zcl_wa001_mngvar_file IMPLEMENTATION.
     DATA lv_path2file TYPE string.
     DATA lv_file_xstring TYPE xstring.
     DATA lv_file_name TYPE string.
+    DATA lv_file_size TYPE syindex.
 
     lv_path2file = ask4path_file(  ).
 
@@ -80,16 +94,35 @@ CLASS zcl_wa001_mngvar_file IMPLEMENTATION.
       get_file_name( iv_file_path = lv_path2file ).
     ENDIF.
 
-    lv_file_xstring = get_pc_file_bin_data( lv_path2file ).
+    "  lv_file_xstring = get_pc_file_bin_data( lv_path2file ).
+    get_pc_file_bin_data( EXPORTING iv_file_path   = lv_path2file
+                          IMPORTING ev_val         = lv_file_xstring
+                                    ev_file_length = lv_file_size ).
     IF lv_file_xstring IS INITIAL.
       ev_rc = 0.
       RETURN.
     ENDIF.
 
     save_file2var( EXPORTING iv_file_name = lv_file_name
-                             iv_file_xstring = lv_file_xstring ).
+                             iv_file_xstring = lv_file_xstring
+                             iv_file_size = lv_file_size ).
 
     MESSAGE s000(cl) WITH 'File has been uploaded'.
+
+    ev_rc = 1.
+  ENDMETHOD.
+
+  METHOD upload_file_from_odata.
+*      IMPORTING iv_file_orig_name TYPE string
+*                iv_file_xstring TYPE xstring
+*      EXPORTING ev_rc TYPE sysubrc.
+    DATA lv_file_size TYPE syindex.
+
+    lv_file_size = xstrlen( iv_file_xstring ).
+
+    save_file2var( EXPORTING iv_file_name = iv_file_orig_name
+                             iv_file_xstring = iv_file_xstring
+                             iv_file_size = lv_file_size ).
 
     ev_rc = 1.
   ENDMETHOD.
@@ -145,12 +178,15 @@ CLASS zcl_wa001_mngvar_file IMPLEMENTATION.
 
     FIELD-SYMBOLS <fs_var_file> TYPE ztwa001_varfile.
 
+    CLEAR ev_file_size.
+
     SELECT * FROM ztwa001_varfile
         INTO TABLE lt_var_file
         WHERE var_name = mv_var_name.
 
     LOOP AT lt_var_file ASSIGNING <fs_var_file>.
       ev_file_disk_name = <fs_var_file>-parh2file.
+      ev_file_size = <fs_var_file>-file_size.
       OPEN DATASET <fs_var_file>-parh2file FOR INPUT IN BINARY MODE.
       IF sy-subrc EQ 0.
         READ DATASET <fs_var_file>-parh2file INTO lv_file_xstring.
@@ -160,7 +196,9 @@ CLASS zcl_wa001_mngvar_file IMPLEMENTATION.
     ENDLOOP.
 
     IF lv_file_xstring IS NOT INITIAL.
-      ev_file_size = xstrlen( lv_file_xstring ).
+      IF ev_file_size IS INITIAL.
+        ev_file_size = xstrlen( lv_file_xstring ).
+      ENDIF.
       cl_bcs_convert=>xstring_to_xtab( EXPORTING iv_xstring = lv_file_xstring
                                        IMPORTING et_xtab = et_file_data_xtab ).
     ENDIF.
@@ -188,8 +226,9 @@ CLASS zcl_wa001_mngvar_file IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD save_file2var.
-*        IMPORTING iv_file_name TYPE string
-*                  iv_file_xstring TYPE xstring.
+*      IMPORTING iv_file_name    TYPE string
+*                iv_file_xstring TYPE xstring
+*                iv_file_size    TYPE syindex.
     DATA lv_disk_filename TYPE string.
     DATA lv_ts TYPE timestamp.
     DATA lv_ts_str TYPE string.
@@ -223,6 +262,8 @@ CLASS zcl_wa001_mngvar_file IMPLEMENTATION.
     ENDIF.
 
     <fs_varfile>-parh2file = lv_disk_filename.
+    <fs_varfile>-file_size = iv_file_size.
+    <fs_varfile>-file_mime = iv_mime_type.
     GET TIME STAMP FIELD <fs_varfile>-chts.
     <fs_varfile>-chu = sy-uname.
     <fs_varfile>-chd = sy-datum.
@@ -281,8 +322,9 @@ CLASS zcl_wa001_mngvar_file IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD get_pc_file_bin_data.
-*       IMPORTING iv_file_path TYPE string
-*       RETURNING VALUE(rv_val) TYPE xstring.
+*      IMPORTING iv_file_path  TYPE string
+*      EXPORTING ev_val TYPE xstring
+*                ev_file_length TYPE syindex.
     DATA lo_frontend_serv TYPE REF TO cl_gui_frontend_services.
     DATA lv_file_length TYPE syindex.
     DATA lv_xheader TYPE xstring.
@@ -301,12 +343,13 @@ CLASS zcl_wa001_mngvar_file IMPLEMENTATION.
     ).
 
     IF lt_solix_tab IS INITIAL.
-      CLEAR rv_val.
+      CLEAR ev_val.
       RETURN.
     ENDIF.
 
     TRY.
-        rv_val =
+        ev_file_length = lv_file_length.
+        ev_val =
     "    cl_bcs_convert=>raw_to_xstring( it_soli = lt_solix_tab ).
         cl_bcs_convert=>xtab_to_xstring( it_xtab = lt_solix_tab ).
       CATCH cx_bcs.
@@ -324,4 +367,45 @@ CLASS zcl_wa001_mngvar_file IMPLEMENTATION.
         rv_val = 'WAFG001_' && sy-datum && sy-uzeit.
     ENDTRY.
   ENDMETHOD.
+
+  METHOD get_file_with_info.
+*     EXPORTING ev_file_xstring TYPE xstring
+*               ev_file_original_name TYPE string
+*               ev_FILE_MIME TYPE string.
+
+    DATA lt_var_file TYPE ztwa001_varfile_tab.
+    DATA lv_file_xstring TYPE xstring.
+
+    FIELD-SYMBOLS <fs_var_file> TYPE ztwa001_varfile.
+
+    SELECT * FROM ztwa001_varfile
+        INTO TABLE lt_var_file
+        WHERE var_name = mv_var_name.
+
+    LOOP AT lt_var_file ASSIGNING <fs_var_file>.
+      ev_file_original_name = <fs_var_file>-parh2file.
+      OPEN DATASET <fs_var_file>-parh2file FOR INPUT IN BINARY MODE.
+      IF sy-subrc EQ 0.
+        READ DATASET <fs_var_file>-parh2file INTO lv_file_xstring.
+        CLOSE DATASET <fs_var_file>-parh2file.
+      ENDIF.
+      ev_file_xstring = lv_file_xstring.
+      EXIT.
+    ENDLOOP.
+
+    " https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_MIME-%D1%82%D0%B8%D0%BF%D0%BE%D0%B2
+    IF ev_file_original_name CP '*.pdf'.
+      ev_file_mime = 'application/pdf'.
+    ENDIF.
+
+    IF ev_file_original_name CP '*.jpg' OR ev_file_original_name CP '*.jpeg'.
+      ev_file_mime = 'image/jpeg'.
+    ENDIF.
+
+    IF ev_file_original_name CP '*.xlsx'.
+      ev_file_mime = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'.
+    ENDIF.
+
+  ENDMETHOD.
+
 ENDCLASS.
