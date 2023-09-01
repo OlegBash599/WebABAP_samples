@@ -18,34 +18,139 @@
      <ENTRY>ID переменной</ENTRY>
      <LENGTH>132</LENGTH>
     </item>
+    <item>
+     <ID>I</ID>
+     <KEY>002</KEY>
+     <ENTRY>Case-Sensitive Length 1024</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>003</KEY>
+     <ENTRY>Необязательный параметр</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>004</KEY>
+     <ENTRY>Case-Sensitive Length 1024</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>005</KEY>
+     <ENTRY>VariableHeader</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>006</KEY>
+     <ENTRY>WA:Variable Descrip</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>007</KEY>
+     <ENTRY>Variable Type</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>008</KEY>
+     <ENTRY>VarType Description</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>009</KEY>
+     <ENTRY>NumOfValues</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>010</KEY>
+     <ENTRY>Number of Files</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>011</KEY>
+     <ENTRY>VariableHeader</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>012</KEY>
+     <ENTRY>WA:Variable Descrip</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>013</KEY>
+     <ENTRY>Variable Type</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>014</KEY>
+     <ENTRY>VariableDelMark</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>015</KEY>
+     <ENTRY>DebugIsOn for Var</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>016</KEY>
+     <ENTRY>Variable Fast Value</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
    </TPOOL>
    <DESCRIPTIONS>
     <SEOCOMPOTX>
-     <CLSNAME>ZCL_ZWEB_ABAP_DEMO3_MPC</CLSNAME>
      <CMPNAME>DEFINE_ACTIONS</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>DEFINE_ACTIONS</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
-     <CLSNAME>ZCL_ZWEB_ABAP_DEMO3_MPC</CLSNAME>
      <CMPNAME>DEFINE_ASSOCIATIONS</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>DEFINE_ASSOCIATIONS</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
-     <CLSNAME>ZCL_ZWEB_ABAP_DEMO3_MPC</CLSNAME>
+     <CMPNAME>DEFINE_COMPLEXTYPES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>DEFINE_COMPLEXTYPES</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>DEFINE_VARFILE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>DEFINE_VARFILE</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>DEFINE_VARH</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>DEFINE_VARH</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
-     <CLSNAME>ZCL_ZWEB_ABAP_DEMO3_MPC</CLSNAME>
      <CMPNAME>DEFINE_VARI</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>DEFINE_VARI</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
-     <CLSNAME>ZCL_ZWEB_ABAP_DEMO3_MPC</CLSNAME>
+     <CMPNAME>DEFINE_VARINFO</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>DEFINE_VARINFO</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>DEFINE_ZSHWA001VARID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>DEFINE_ZSHWA001VARID</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>LOAD_TEXT_ELEMENTS</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>LOAD_TEXT_ELEMENTS</DESCRIPT>

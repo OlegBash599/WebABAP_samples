@@ -1,44 +1,57 @@
-class ZCL_ZWEB_ABAP_DEMO3_DPC_EXT definition
-  public
-  inheriting from ZCL_ZWEB_ABAP_DEMO3_DPC
-  create public .
+CLASS zcl_zweb_abap_demo3_dpc_ext DEFINITION
+  PUBLIC
+  INHERITING FROM zcl_zweb_abap_demo3_dpc
+  CREATE PUBLIC .
 
-public section.
+  PUBLIC SECTION.
 
-  methods CONSTRUCTOR .
+    METHODS constructor .
 
-  methods /IWBEP/IF_MGW_APPL_SRV_RUNTIME~CHANGESET_BEGIN
-    redefinition .
-  methods /IWBEP/IF_MGW_APPL_SRV_RUNTIME~CHANGESET_END
-    redefinition .
-  methods /IWBEP/IF_MGW_APPL_SRV_RUNTIME~CHANGESET_PROCESS
-    redefinition .
-  methods /IWBEP/IF_MGW_APPL_SRV_RUNTIME~EXECUTE_ACTION
-    redefinition .
-  methods /IWBEP/IF_MGW_APPL_SRV_RUNTIME~CREATE_DEEP_ENTITY
-    redefinition .
-protected section.
+    METHODS /iwbep/if_mgw_appl_srv_runtime~changeset_begin
+        REDEFINITION .
+    METHODS /iwbep/if_mgw_appl_srv_runtime~changeset_end
+        REDEFINITION .
+    METHODS /iwbep/if_mgw_appl_srv_runtime~changeset_process
+        REDEFINITION .
+    METHODS /iwbep/if_mgw_appl_srv_runtime~execute_action
+        REDEFINITION .
+    METHODS /iwbep/if_mgw_appl_srv_runtime~create_deep_entity
+        REDEFINITION .
 
-  methods VARHSET_CREATE_ENTITY
-    redefinition .
-  methods VARHSET_DELETE_ENTITY
-    redefinition .
-  methods VARHSET_GET_ENTITY
-    redefinition .
-  methods VARHSET_GET_ENTITYSET
-    redefinition .
-  methods VARHSET_UPDATE_ENTITY
-    redefinition .
-  methods VARISET_CREATE_ENTITY
-    redefinition .
-  methods VARISET_DELETE_ENTITY
-    redefinition .
-  methods VARISET_GET_ENTITY
-    redefinition .
-  methods VARISET_GET_ENTITYSET
-    redefinition .
-  methods VARISET_UPDATE_ENTITY
-    redefinition .
+    METHODS /iwbep/if_mgw_appl_srv_runtime~create_stream REDEFINITION .
+    METHODS /iwbep/if_mgw_appl_srv_runtime~get_stream REDEFINITION .
+
+  PROTECTED SECTION.
+
+    METHODS varhset_create_entity
+        REDEFINITION .
+    METHODS varhset_delete_entity
+        REDEFINITION .
+    METHODS varhset_get_entity
+        REDEFINITION .
+    METHODS varhset_get_entityset
+        REDEFINITION .
+    METHODS varhset_update_entity
+        REDEFINITION .
+    METHODS variset_create_entity
+        REDEFINITION .
+    METHODS variset_delete_entity
+        REDEFINITION .
+    METHODS variset_get_entity
+        REDEFINITION .
+    METHODS variset_get_entityset
+        REDEFINITION .
+    METHODS variset_update_entity
+        REDEFINITION .
+
+
+    METHODS varinfoset_create_entity REDEFINITION .
+    METHODS varinfoset_delete_entity REDEFINITION .
+    METHODS varinfoset_get_entity REDEFINITION .
+    METHODS varinfoset_get_entityset REDEFINITION .
+    METHODS varinfoset_update_entity  REDEFINITION .
+
+
   PRIVATE SECTION.
 
     DATA mv_batch_mode TYPE abap_bool.
@@ -47,7 +60,7 @@ ENDCLASS.
 
 
 
-CLASS ZCL_ZWEB_ABAP_DEMO3_DPC_EXT IMPLEMENTATION.
+CLASS zcl_zweb_abap_demo3_dpc_ext IMPLEMENTATION.
 
 
   METHOD /iwbep/if_mgw_appl_srv_runtime~changeset_begin.
@@ -467,7 +480,7 @@ CLASS ZCL_ZWEB_ABAP_DEMO3_DPC_EXT IMPLEMENTATION.
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     IF 1 = 2 .
-      data lo_where TYPE REF TO ZCL_WA003_VAR_HEAD_FEED.
+      DATA lo_where TYPE REF TO zcl_wa003_var_head_feed.
     ENDIF.
 
     DATA lo_entity_var_h TYPE REF TO zif_wa003_entity_feeder.
@@ -661,4 +674,210 @@ CLASS ZCL_ZWEB_ABAP_DEMO3_DPC_EXT IMPLEMENTATION.
     lo_entity_var_h->u( IMPORTING es = er_entity ).
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   ENDMETHOD.
+
+  METHOD /iwbep/if_mgw_appl_srv_runtime~create_stream .
+*    importing
+*      !IV_ENTITY_NAME type STRING optional
+*      !IV_ENTITY_SET_NAME type STRING optional
+*      !IV_SOURCE_NAME type STRING optional
+*      !IS_MEDIA_RESOURCE type TY_S_MEDIA_RESOURCE
+*      !IT_KEY_TAB type /IWBEP/T_MGW_NAME_VALUE_PAIR optional
+*      !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH optional
+*      !IV_SLUG type STRING
+*      !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITY_C optional
+*    exporting
+*      !ER_ENTITY type ref to DATA
+*    raising
+*      /IWBEP/CX_MGW_BUSI_EXCEPTION
+*      /IWBEP/CX_MGW_TECH_EXCEPTION .
+
+    DATA ls_var_file_response TYPE zswa003_var_file_stream.
+    DATA ls_varfile_db TYPE ztwa001_varfile.
+
+    DATA lv_var_name TYPE zewa001_var_name.
+    DATA lv_var_name_add_param TYPE zewa001_var_name.
+    DATA lv_file_name TYPE string.
+
+    SPLIT iv_slug AT '$' INTO lv_var_name lv_file_name.
+
+    IF lv_var_name IS INITIAL.
+      RETURN.
+    ENDIF.
+
+    DATA lo_file_mngr TYPE REF TO zcl_wa001_mngvar_file.
+    DATA lv_rc TYPE sysubrc.
+    lo_file_mngr = NEW #( lv_var_name ).
+    lo_file_mngr->upload_file_from_odata(
+      EXPORTING
+        iv_file_orig_name = lv_file_name
+        iv_file_xstring   = is_media_resource-value
+        iv_mime_type      = is_media_resource-mime_type
+      IMPORTING
+        ev_rc             = lv_rc ).
+
+    IF lv_rc IS INITIAL.
+      RETURN.
+    ENDIF.
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    DATA ls_technical_request TYPE /iwbep/if_mgw_core_srv_runtime=>technical_request_s.
+    ls_technical_request = me->mr_request_details->technical_request.
+    lv_var_name_add_param = VALUE #( ls_technical_request-request_header[ name = 'add_param' ]-value OPTIONAL ).
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+    ls_var_file_response-file_name = lv_file_name.
+
+    copy_data_to_ref( EXPORTING is_data = ls_var_file_response
+                       CHANGING cr_data = er_entity  ).
+
+  ENDMETHOD.
+
+  METHOD /iwbep/if_mgw_appl_srv_runtime~get_stream .
+*          !IV_ENTITY_NAME type STRING optional
+*      !IV_ENTITY_SET_NAME type STRING optional
+*      !IV_SOURCE_NAME type STRING optional
+*      !IT_KEY_TAB type /IWBEP/T_MGW_NAME_VALUE_PAIR optional
+*      !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH optional
+*      !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITY optional
+*    exporting
+*      !ER_STREAM type ref to DATA
+*      !ES_RESPONSE_CONTEXT type /IWBEP/IF_MGW_APPL_SRV_RUNTIME=>TY_S_MGW_RESPONSE_ENTITY_CNTXT
+*    raising
+*      /IWBEP/CX_MGW_BUSI_EXCEPTION
+*      /IWBEP/CX_MGW_TECH_EXCEPTION .
+
+    DATA lr_key_tab_line TYPE REF TO /iwbep/s_mgw_name_value_pair.
+    DATA ls_file_stream TYPE zswa003_var_file_stream.
+    CONSTANTS lc_dispo_attachment TYPE zewa003_disposition VALUE '2'.
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    LOOP AT it_key_tab REFERENCE INTO  lr_key_tab_line.
+      CASE lr_key_tab_line->name.
+        WHEN 'VarName'.
+          ls_file_stream-var_name = lr_key_tab_line->value.
+        WHEN 'ContentDisposition'.
+          ls_file_stream-content_disposition = lr_key_tab_line->value.
+        WHEN OTHERS.
+      ENDCASE.
+    ENDLOOP.
+    IF ls_file_stream-var_name IS INITIAL.
+      RETURN.
+    ENDIF.
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    "" Откуда-то читаем файл{{{{
+    DATA lv_file_xstring TYPE xstring.
+    DATA lv_file_original_name TYPE string.
+    DATA lv_file_mime TYPE string.
+
+    """""~~~~~~~~~~~~"""~~~~~~~~~~~~"""~~~~~~~~~~~~"""~~~~~~~~~~~~"""
+    DATA lo_file_mngr TYPE REF TO zcl_wa001_mngvar_file.
+    lo_file_mngr = NEW #( ls_file_stream-var_name ).
+
+    lo_file_mngr->get_file_with_info(
+      IMPORTING
+        ev_file_xstring       = lv_file_xstring
+        ev_file_original_name = lv_file_original_name
+        ev_file_mime          = lv_file_mime
+    ).
+
+    "" Откуда-то читаем файл }}}
+    """""~~~~~~~~~~~~"""~~~~~~~~~~~~"""~~~~~~~~~~~~"""~~~~~~~~~~~~"""
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+    DATA ls_stream TYPE ty_s_media_resource.
+    DATA ls_http_header TYPE ihttpnvp.
+
+    DATA lv_disposition TYPE string.
+    ls_http_header-name = 'Content-Disposition'.
+
+    " " https://developer.mozilla.org/ru/docs/Web/HTTP/Headers/Content-Disposition
+    IF ls_file_stream-content_disposition EQ lc_dispo_attachment.
+      lv_disposition = 'attachment'.
+    ELSE.
+      lv_disposition = 'inline'.
+    ENDIF.
+    " escape актуально для кириллицы и умлаутов и прочего специфического не ASCII
+    ls_http_header-value = |{ lv_disposition }; filename="{ escape( val = lv_file_original_name format = cl_abap_format=>e_url ) }"|.
+
+    ls_stream-mime_type = lv_file_mime.
+    ls_stream-value = lv_file_xstring.
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    "" отправляем ответ в OData
+    set_header( is_header = ls_http_header ).
+    copy_data_to_ref(  EXPORTING is_data = ls_stream
+                       CHANGING  cr_data = er_stream ).
+  ENDMETHOD.
+
+  METHOD varinfoset_create_entity .
+
+  ENDMETHOD.
+
+  METHOD varinfoset_delete_entity .
+
+  ENDMETHOD.
+
+  METHOD varinfoset_get_entity .
+
+  ENDMETHOD.
+
+  METHOD varinfoset_get_entityset .
+*    importing
+*      !IV_ENTITY_NAME type STRING
+*      !IV_ENTITY_SET_NAME type STRING
+*      !IV_SOURCE_NAME type STRING
+*      !IT_FILTER_SELECT_OPTIONS type /IWBEP/T_MGW_SELECT_OPTION
+*      !IS_PAGING type /IWBEP/S_MGW_PAGING
+*      !IT_KEY_TAB type /IWBEP/T_MGW_NAME_VALUE_PAIR
+*      !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
+*      !IT_ORDER type /IWBEP/T_MGW_SORTING_ORDER
+*      !IV_FILTER_STRING type STRING
+*      !IV_SEARCH_STRING type STRING
+*      !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITYSET optional
+*    exporting
+*      !ET_ENTITYSET type ZCL_ZWEB_ABAP_DEMO3_MPC=>TT_VARINFO
+*      !ES_RESPONSE_CONTEXT type /IWBEP/IF_MGW_APPL_SRV_RUNTIME=>TY_S_MGW_RESPONSE_CONTEXT
+*    raising
+*      /IWBEP/CX_MGW_BUSI_EXCEPTION
+*      /IWBEP/CX_MGW_TECH_EXCEPTION .
+
+    DATA ls_nested_entity TYPE zcl_zweb_abap_demo3_mpc=>ts_varinfo.
+    DATA lt_nested_entity TYPE zcl_zweb_abap_demo3_mpc=>ts_varinfo.
+
+    ls_nested_entity-name = 'ZAPO_N42'.
+    ls_nested_entity-description = 'Description for ZAPO_N42'.
+    ls_nested_entity-var_type = '3'.
+    ls_nested_entity-var_type_tx = 'Range'.
+    ls_nested_entity-num_of_values = '2'.
+    ls_nested_entity-num_of_files = '3'.
+    ls_nested_entity-filemeta-var_name = 'ZAPO_N42'.
+    ls_nested_entity-filemeta-file_mime = 'image/jpeg'.
+    ls_nested_entity-filemeta-file_size = '1024'.
+    ls_nested_entity-filemeta-file_name = 'File_name4var'.
+
+    APPEND ls_nested_entity TO et_entityset.
+
+
+    ls_nested_entity-name = 'ZEWM_N7'.
+    ls_nested_entity-description = 'Description for ZEWM_N7'.
+    ls_nested_entity-var_type = '3'.
+    ls_nested_entity-var_type_tx = 'Range'.
+    ls_nested_entity-num_of_values = '2'.
+    ls_nested_entity-num_of_files = '3'.
+    ls_nested_entity-filemeta-var_name = 'ZEWM_N7'.
+    ls_nested_entity-filemeta-file_mime = 'image/jpeg'.
+    ls_nested_entity-filemeta-file_size = '1024'.
+    ls_nested_entity-filemeta-file_name = 'File_name4var ZEWM_N7'.
+
+    APPEND ls_nested_entity TO et_entityset.
+  ENDMETHOD.
+
+  METHOD varinfoset_update_entity .
+
+  ENDMETHOD.
+
+
 ENDCLASS.

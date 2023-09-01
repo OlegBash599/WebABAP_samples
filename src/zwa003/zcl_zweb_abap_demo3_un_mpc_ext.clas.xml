@@ -3,21 +3,14 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOCLASS>
-    <CLSNAME>ZCL_ZWEB_ABAP_DEMO3_DPC_EXT</CLSNAME>
+    <CLSNAME>ZCL_ZWEB_ABAP_DEMO3_UN_MPC_EXT</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>Data Provider Secondary Class</DESCRIPT>
+    <DESCRIPT>ZCL_ZWEB_ABAP_DEMO3_UN_MPC_EXT</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
    </VSEOCLASS>
-   <DESCRIPTIONS>
-    <SEOCOMPOTX>
-     <CMPNAME>CONSTRUCTOR</CMPNAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>CONSTRUCTOR</DESCRIPT>
-    </SEOCOMPOTX>
-   </DESCRIPTIONS>
   </asx:values>
  </asx:abap>
 </abapGit>

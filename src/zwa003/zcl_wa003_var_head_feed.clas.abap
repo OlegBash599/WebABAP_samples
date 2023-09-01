@@ -52,209 +52,49 @@ ENDCLASS.
 
 
 
-CLASS zcl_wa003_var_head_feed IMPLEMENTATION.
-  METHOD zif_wa003_entity_feeder~c.
-    DATA lv_msg_bapi TYPE bapi_msg.
-    CLEAR ms_entry_in.
-
-    mo_odata_in->get_data_provider( )->read_entry_data( IMPORTING es_data = ms_entry_in ).
-
-    "" проверка, что запись не существует
-    IF if_record_exist( ms_entry_in ) EQ abap_true.
-      "MESSAGE x000(cl) WITH 'Entry exists'.
-      MESSAGE e000(cl) WITH 'Entry exist' 'Not for creation' INTO lv_msg_bapi.
-      raise_exception2odata( lv_msg_bapi ).
-    ENDIF.
+CLASS ZCL_WA003_VAR_HEAD_FEED IMPLEMENTATION.
 
 
-    """"""""""""""""""""""""""""""""""""""""
-    DATA lt_var_id4db TYPE ztwa001_varid_tab.
-    FIELD-SYMBOLS <fs_var_id> TYPE ztwa001_varid.
+  METHOD fill_from_odata_filters.
 
-    GET TIME.
-    APPEND INITIAL LINE TO lt_var_id4db ASSIGNING <fs_var_id>.
-    MOVE-CORRESPONDING ms_entry_in TO <fs_var_id>.
-    <fs_var_id>-var_name = ms_entry_in-name.
-    <fs_var_id>-var_desc = ms_entry_in-description.
-    <fs_var_id>-var_type = ms_entry_in-var_type.
-    <fs_var_id>-is_debug_on = ms_entry_in-debug_is_on.
-    <fs_var_id>-is_del = ms_entry_in-is_del.
-    <fs_var_id>-crd = sy-datum.
-    <fs_var_id>-crt = sy-uzeit.
-    <fs_var_id>-cru = cl_abap_syst=>get_user_name( ).
-    <fs_var_id>-chd = sy-datum.
-    <fs_var_id>-cht = sy-uzeit.
-    <fs_var_id>-chu = cl_abap_syst=>get_user_name( ).
+*    DATA lo_odata_req_filter TYPE REF TO /iwbep/if_mgw_req_filter.
+*    DATA lo_select_option_list TYPE /iwbep/t_mgw_select_option.
+*
+*    FIELD-SYMBOLS <fs_select_option> TYPE /iwbep/s_mgw_select_option.
+*
+*    CLEAR ms_sel_opt.
+*
+*    lo_odata_req_filter ?= mo_odata_in->get_tech_context_q( )->get_filter( ).
+*    lo_select_option_list = lo_odata_req_filter->get_filter_select_options( ).
+*    LOOP AT lo_select_option_list ASSIGNING <fs_select_option>.
+*
+*      CASE <fs_select_option>-property.
+*        WHEN 'VarType' OR 'VAR_TYPE'.
+*          lo_odata_req_filter->convert_select_option(
+*                    EXPORTING is_select_option = <fs_select_option>
+*                    IMPORTING et_select_option = ms_sel_opt-var_type_rng ).
+*
+*        WHEN OTHERS.
+*
+*      ENDCASE.
+*    ENDLOOP.
 
-    save2db( lt_var_id4db ).
+    DATA lt_property_rng TYPE zcl_wa003_odata2range=>tt_property_rng.
+    FIELD-SYMBOLS <fs_property_rng> TYPE zcl_wa003_odata2range=>ts_property_rng.
+    "CLEAR ms_sel_opt.
 
-    ms_entry_in-crd =  <fs_var_id>-crd.
-    ms_entry_in-crt =  <fs_var_id>-crt.
-    ms_entry_in-cru =  <fs_var_id>-cru.
-    ms_entry_in-chd =  <fs_var_id>-chd.
-    ms_entry_in-cht =  <fs_var_id>-cht.
-    ms_entry_in-chu =  <fs_var_id>-chu.
-    MOVE-CORRESPONDING ms_entry_in TO es.
+    APPEND INITIAL LINE TO lt_property_rng ASSIGNING <fs_property_rng>.
+    <fs_property_rng>-prop_in = 'VAR_TYPE'.
+    GET REFERENCE OF ms_sel_opt-var_type_rng INTO <fs_property_rng>-range.
+
+    APPEND INITIAL LINE TO lt_property_rng ASSIGNING <fs_property_rng>.
+    <fs_property_rng>-prop_in = 'NUM_OF_FILES'.
+    GET REFERENCE OF ms_sel_opt-num_of_files_range INTO <fs_property_rng>-range.
+
+    me->odata2range( CHANGING ct_property_rng = lt_property_rng  ).
 
   ENDMETHOD.
 
-  METHOD zif_wa003_entity_feeder~r.
-
-    DATA lt_key_tab TYPE /iwbep/t_mgw_name_value_pair.
-    DATA lr_name_value_line TYPE REF TO /iwbep/s_mgw_name_value_pair.
-
-    DATA lt_entry_tab TYPE tt_entry.
-    DATA ls_entry_out TYPE ts_entry.
-    DATA lt_var_id TYPE ztwa001_varid_tab.
-
-
-    FIELD-SYMBOLS <fs_var_id> TYPE ztwa001_varid.
-    FIELD-SYMBOLS <fs_var_list> TYPE zswa001_variable_alv.
-
-    lt_key_tab = mo_odata_in->get_key_tab(  ).
-
-    CLEAR ms_entry_in.
-    LOOP AT lt_key_tab REFERENCE INTO lr_name_value_line.
-      CASE lr_name_value_line->name.
-        WHEN 'Name'.
-          ms_entry_in-name = lr_name_value_line->value.
-        WHEN OTHERS.
-
-      ENDCASE.
-    ENDLOOP.
-
-    SELECT * FROM ztwa001_varid
-        INTO TABLE lt_var_id
-        WHERE var_name = ms_entry_in-name
-          .
-
-    fill_stat_by_head( EXPORTING it_var_id       = lt_var_id
-                       CHANGING  ct_var_head_set = lt_entry_tab ).
-
-
-    MOVE-CORRESPONDING VALUE #( lt_entry_tab[ 1 ] OPTIONAL ) TO es .
-
-  ENDMETHOD.
-
-  METHOD zif_wa003_entity_feeder~u.
-    DATA lv_msg_bapi TYPE bapi_msg.
-    CLEAR ms_entry_in.
-
-    mo_odata_in->get_data_provider( )->read_entry_data( IMPORTING es_data = ms_entry_in ).
-
-    "" проверка, что запись не существует
-    IF if_record_exist( ms_entry_in ) EQ abap_false.
-      "MESSAGE x000(cl) WITH 'Entry exists'.
-      MESSAGE s000(cl) WITH 'Entry DOES not exist' 'Not for updation' INTO lv_msg_bapi.
-      raise_exception2odata( lv_msg_bapi ).
-    ENDIF.
-
-
-    """"""""""""""""""""""""""""""""""""""""
-    DATA lt_var_id4db TYPE ztwa001_varid_tab.
-    FIELD-SYMBOLS <fs_var_id> TYPE ztwa001_varid.
-
-    GET TIME.
-    APPEND INITIAL LINE TO lt_var_id4db ASSIGNING <fs_var_id>.
-    MOVE-CORRESPONDING ms_entry_in TO <fs_var_id>.
-    <fs_var_id>-var_name = ms_entry_in-name.
-    <fs_var_id>-var_desc = ms_entry_in-description.
-    <fs_var_id>-var_type = ms_entry_in-var_type.
-    <fs_var_id>-is_debug_on = ms_entry_in-debug_is_on.
-    <fs_var_id>-is_del = ms_entry_in-is_del.
-*    <fs_var_id>-crd = sy-datum.
-*    <fs_var_id>-crt = sy-uzeit.
-*    <fs_var_id>-cru = cl_abap_syst=>get_user_name( ).
-    <fs_var_id>-chd = sy-datum.
-    <fs_var_id>-cht = sy-uzeit.
-    <fs_var_id>-chu = cl_abap_syst=>get_user_name( ).
-
-    save2db( lt_var_id4db ).
-
-    ms_entry_in-chd =  <fs_var_id>-chd.
-    ms_entry_in-cht =  <fs_var_id>-cht.
-    ms_entry_in-chu =  <fs_var_id>-chu.
-    MOVE-CORRESPONDING ms_entry_in TO es.
-  ENDMETHOD.
-
-  METHOD zif_wa003_entity_feeder~d.
-    DATA lt_key_tab TYPE /iwbep/t_mgw_name_value_pair.
-    DATA lr_name_value_line TYPE REF TO /iwbep/s_mgw_name_value_pair.
-
-    DATA lv_msg_bapi TYPE bapi_msg.
-    CLEAR ms_entry_in.
-
-    lt_key_tab = mo_odata_in->get_key_tab(  ).
-
-    LOOP AT lt_key_tab REFERENCE INTO lr_name_value_line.
-      CASE lr_name_value_line->name.
-        WHEN 'Name'.
-          ms_entry_in-name = lr_name_value_line->value.
-        WHEN OTHERS.
-
-      ENDCASE.
-    ENDLOOP.
-
-    "" проверка, что запись не существует
-    IF if_record_exist( ms_entry_in ) EQ abap_false.
-      "MESSAGE x000(cl) WITH 'Entry exists'.
-      MESSAGE s000(cl) WITH 'Entry DOES not exist' 'Not for deletion' INTO lv_msg_bapi.
-      raise_exception2odata( lv_msg_bapi ).
-    ELSE.
-
-    ENDIF.
-
-
-    """"""""""""""""""""""""""""""""""""""""
-
-    FIELD-SYMBOLS <fs_var_id> TYPE ztwa001_varid.
-    DATA lt_var_id4db TYPE ztwa001_varid_tab.
-    SELECT * FROM ztwa001_varid
-      INTO TABLE lt_var_id4db
-      WHERE var_name = ms_entry_in-name.
-
-    GET TIME.
-
-    LOOP AT lt_var_id4db ASSIGNING <fs_var_id>.
-      <fs_var_id>-is_del = abap_true.
-      <fs_var_id>-chd = sy-datum.
-      <fs_var_id>-cht = sy-uzeit.
-      <fs_var_id>-chu = cl_abap_syst=>get_user_name( ).
-    ENDLOOP.
-
-    save2db( lt_var_id4db ).
-  ENDMETHOD.
-
-  METHOD zif_wa003_entity_feeder~q.
-    DATA lt_var_head_set TYPE zcl_zweb_abap_demo3_mpc=>tt_varh.
-    fill_from_odata_filters(  ).
-    fill_var_head_set( CHANGING ct_var_head_set = lt_var_head_set ).
-    et_set[] =  lt_var_head_set[].
-  ENDMETHOD.
-
-  METHOD fill_var_head_set.
-*      changing ct_var_head_set TYPE zcl_zweb_abap_demo3_mpc=>tt_varh
-*      RAISING /iwbep/cx_mgw_tech_exception.
-
-    DATA lt_var_id TYPE ztwa001_varid_tab.
-
-    SELECT * FROM ztwa001_varid
-      INTO TABLE lt_var_id
-      WHERE
-          var_type IN ms_sel_opt-var_type_rng
-         AND
-         var_desc IN ms_sel_opt-var_desc_range
-      .
-
-    fill_stat_by_head( EXPORTING it_var_id = lt_var_id
-                       CHANGING ct_var_head_set = ct_var_head_set ).
-
-
-    IF ms_sel_opt-num_of_files_range[] IS NOT INITIAL.
-      DELETE ct_var_head_set WHERE num_of_files NOT IN ms_sel_opt-num_of_files_range[].
-    ENDIF.
-
-  ENDMETHOD.
 
   METHOD fill_stat_by_head.
 *        IMPORTING it_var_id type ztwa001_varid_tab
@@ -319,45 +159,51 @@ CLASS zcl_wa003_var_head_feed IMPLEMENTATION.
 
   ENDMETHOD.
 
-  METHOD fill_from_odata_filters.
 
-*    DATA lo_odata_req_filter TYPE REF TO /iwbep/if_mgw_req_filter.
-*    DATA lo_select_option_list TYPE /iwbep/t_mgw_select_option.
-*
-*    FIELD-SYMBOLS <fs_select_option> TYPE /iwbep/s_mgw_select_option.
-*
-*    CLEAR ms_sel_opt.
-*
-*    lo_odata_req_filter ?= mo_odata_in->get_tech_context_q( )->get_filter( ).
-*    lo_select_option_list = lo_odata_req_filter->get_filter_select_options( ).
-*    LOOP AT lo_select_option_list ASSIGNING <fs_select_option>.
-*
-*      CASE <fs_select_option>-property.
-*        WHEN 'VarType' OR 'VAR_TYPE'.
-*          lo_odata_req_filter->convert_select_option(
-*                    EXPORTING is_select_option = <fs_select_option>
-*                    IMPORTING et_select_option = ms_sel_opt-var_type_rng ).
-*
-*        WHEN OTHERS.
-*
-*      ENDCASE.
-*    ENDLOOP.
+  METHOD fill_var_head_set.
+*      changing ct_var_head_set TYPE zcl_zweb_abap_demo3_mpc=>tt_varh
+*      RAISING /iwbep/cx_mgw_tech_exception.
 
-    DATA lt_property_rng TYPE zcl_wa003_odata2range=>tt_property_rng.
-    FIELD-SYMBOLS <fs_property_rng> TYPE zcl_wa003_odata2range=>ts_property_rng.
-    "CLEAR ms_sel_opt.
+    DATA lt_var_id TYPE ztwa001_varid_tab.
 
-    APPEND INITIAL LINE TO lt_property_rng ASSIGNING <fs_property_rng>.
-    <fs_property_rng>-prop_in = 'VAR_TYPE'.
-    GET REFERENCE OF ms_sel_opt-var_type_rng INTO <fs_property_rng>-range.
+    SELECT * FROM ztwa001_varid
+      INTO TABLE lt_var_id
+      WHERE
+          var_type IN ms_sel_opt-var_type_rng
+         AND
+         var_desc IN ms_sel_opt-var_desc_range
+      .
 
-    APPEND INITIAL LINE TO lt_property_rng ASSIGNING <fs_property_rng>.
-    <fs_property_rng>-prop_in = 'NUM_OF_FILES'.
-    GET REFERENCE OF ms_sel_opt-num_of_files_range INTO <fs_property_rng>-range.
+    fill_stat_by_head( EXPORTING it_var_id = lt_var_id
+                       CHANGING ct_var_head_set = ct_var_head_set ).
 
-    me->odata2range( CHANGING ct_property_rng = lt_property_rng  ).
 
+    IF ms_sel_opt-num_of_files_range[] IS NOT INITIAL.
+      DELETE ct_var_head_set WHERE num_of_files NOT IN ms_sel_opt-num_of_files_range[].
+    ELSE.
+      CLEAR lt_var_id. " see coverage
+    ENDIF.
+    " https://help.sap.com/docs/SAP_NETWEAVER_AS_ABAP_FOR_SOH_740/
+    " ba879a6e2ea04d9bb94c7ccd7cdac446/7f27a2638ee64d1d97dd53c69c562e7b.html?version=7.40.19
   ENDMETHOD.
+
+
+  METHOD if_record_exist.
+*      IMPORTING is_entry_in TYPE ts_entry
+*      RETURNING VALUE(rv_val) TYPE abap_bool.
+    DATA lt_var_id TYPE ztwa001_varid_tab.
+
+    SELECT * FROM ztwa001_varid
+       INTO TABLE lt_var_id
+       WHERE var_name = ms_entry_in-name
+        and is_del = abap_false .
+    IF sy-subrc EQ 0.
+      rv_val = abap_true.
+    ELSE.
+      rv_val = abap_false.
+    ENDIF.
+  ENDMETHOD.
+
 
   METHOD odata2range.
     "changing ct_property_rng type zcl_wa003_odata2range=>tt_property_rng.
@@ -368,13 +214,6 @@ CLASS zcl_wa003_var_head_feed IMPLEMENTATION.
 
   ENDMETHOD.
 
-  METHOD zif_wa003_entity_feeder~set_batch_tab.
-
-  ENDMETHOD.
-
-  METHOD zif_wa003_entity_feeder~set_odata_in.
-    mo_odata_in ?= io_odata_in.
-  ENDMETHOD.
 
   METHOD raise_exception2odata.
 *      IMPORTING IV_MSG TYPE BAPI_MSG
@@ -413,20 +252,6 @@ CLASS zcl_wa003_var_head_feed IMPLEMENTATION.
       .
   ENDMETHOD.
 
-  METHOD if_record_exist.
-*      IMPORTING is_entry_in TYPE ts_entry
-*      RETURNING VALUE(rv_val) TYPE abap_bool.
-    DATA lt_var_id TYPE ztwa001_varid_tab.
-
-    SELECT * FROM ztwa001_varid
-       INTO TABLE lt_var_id
-       WHERE var_name = ms_entry_in-name.
-    IF sy-subrc EQ 0.
-      rv_val = abap_true.
-    ELSE.
-      rv_val = abap_false.
-    ENDIF.
-  ENDMETHOD.
 
   METHOD save2db.
     "      IMPORTING !it_varid_tab TYPE ztwa001_varid_tab.
@@ -448,4 +273,197 @@ CLASS zcl_wa003_var_head_feed IMPLEMENTATION.
 
   ENDMETHOD.
 
+
+  METHOD zif_wa003_entity_feeder~c.
+    DATA lv_msg_bapi TYPE bapi_msg.
+    CLEAR ms_entry_in.
+
+    mo_odata_in->get_data_provider( )->read_entry_data( IMPORTING es_data = ms_entry_in ).
+
+    "" проверка, что запись не существует
+    IF if_record_exist( ms_entry_in ) EQ abap_true.
+      "MESSAGE x000(cl) WITH 'Entry exists'.
+      MESSAGE e000(cl) WITH 'Entry exist' 'Not for creation' INTO lv_msg_bapi.
+      raise_exception2odata( lv_msg_bapi ).
+    ENDIF.
+
+
+    """"""""""""""""""""""""""""""""""""""""
+    DATA lt_var_id4db TYPE ztwa001_varid_tab.
+    FIELD-SYMBOLS <fs_var_id> TYPE ztwa001_varid.
+
+    GET TIME.
+    APPEND INITIAL LINE TO lt_var_id4db ASSIGNING <fs_var_id>.
+    MOVE-CORRESPONDING ms_entry_in TO <fs_var_id>.
+    <fs_var_id>-var_name = ms_entry_in-name.
+    <fs_var_id>-var_desc = ms_entry_in-description.
+    <fs_var_id>-var_type = ms_entry_in-var_type.
+    <fs_var_id>-is_debug_on = ms_entry_in-debug_is_on.
+    <fs_var_id>-is_del = abap_false.
+    <fs_var_id>-crd = sy-datum.
+    <fs_var_id>-crt = sy-uzeit.
+    <fs_var_id>-cru = cl_abap_syst=>get_user_name( ).
+    <fs_var_id>-chd = sy-datum.
+    <fs_var_id>-cht = sy-uzeit.
+    <fs_var_id>-chu = cl_abap_syst=>get_user_name( ).
+
+    save2db( lt_var_id4db ).
+
+    ms_entry_in-crd =  <fs_var_id>-crd.
+    ms_entry_in-crt =  <fs_var_id>-crt.
+    ms_entry_in-cru =  <fs_var_id>-cru.
+    ms_entry_in-chd =  <fs_var_id>-chd.
+    ms_entry_in-cht =  <fs_var_id>-cht.
+    ms_entry_in-chu =  <fs_var_id>-chu.
+    MOVE-CORRESPONDING ms_entry_in TO es.
+
+  ENDMETHOD.
+
+
+  METHOD zif_wa003_entity_feeder~d.
+    DATA lt_key_tab TYPE /iwbep/t_mgw_name_value_pair.
+    DATA lr_name_value_line TYPE REF TO /iwbep/s_mgw_name_value_pair.
+
+    DATA lv_msg_bapi TYPE bapi_msg.
+    CLEAR ms_entry_in.
+
+    lt_key_tab = mo_odata_in->get_key_tab(  ).
+
+    LOOP AT lt_key_tab REFERENCE INTO lr_name_value_line.
+      CASE lr_name_value_line->name.
+        WHEN 'Name'.
+          ms_entry_in-name = lr_name_value_line->value.
+        WHEN OTHERS.
+
+      ENDCASE.
+    ENDLOOP.
+
+    "" проверка, что запись не существует
+    IF if_record_exist( ms_entry_in ) EQ abap_false.
+      "MESSAGE x000(cl) WITH 'Entry exists'.
+      MESSAGE s000(cl) WITH 'Entry DOES not exist' 'Not for deletion' INTO lv_msg_bapi.
+      raise_exception2odata( lv_msg_bapi ).
+    ELSE.
+
+    ENDIF.
+
+
+    """"""""""""""""""""""""""""""""""""""""
+
+    FIELD-SYMBOLS <fs_var_id> TYPE ztwa001_varid.
+    DATA lt_var_id4db TYPE ztwa001_varid_tab.
+    SELECT * FROM ztwa001_varid
+      INTO TABLE lt_var_id4db
+      WHERE var_name = ms_entry_in-name.
+
+    GET TIME.
+
+    LOOP AT lt_var_id4db ASSIGNING <fs_var_id>.
+      <fs_var_id>-is_del = abap_true.
+      <fs_var_id>-chd = sy-datum.
+      <fs_var_id>-cht = sy-uzeit.
+      <fs_var_id>-chu = cl_abap_syst=>get_user_name( ).
+    ENDLOOP.
+
+    save2db( lt_var_id4db ).
+  ENDMETHOD.
+
+
+  METHOD zif_wa003_entity_feeder~q.
+    DATA lt_var_head_set TYPE zcl_zweb_abap_demo3_mpc=>tt_varh.
+    fill_from_odata_filters(  ).
+    fill_var_head_set( CHANGING ct_var_head_set = lt_var_head_set ).
+    et_set[] =  lt_var_head_set[].
+  ENDMETHOD.
+
+
+  METHOD zif_wa003_entity_feeder~r.
+
+    DATA lt_key_tab TYPE /iwbep/t_mgw_name_value_pair.
+    DATA lr_name_value_line TYPE REF TO /iwbep/s_mgw_name_value_pair.
+
+    DATA lt_entry_tab TYPE tt_entry.
+    DATA ls_entry_out TYPE ts_entry.
+    DATA lt_var_id TYPE ztwa001_varid_tab.
+
+
+    FIELD-SYMBOLS <fs_var_id> TYPE ztwa001_varid.
+    FIELD-SYMBOLS <fs_var_list> TYPE zswa001_variable_alv.
+
+    lt_key_tab = mo_odata_in->get_key_tab(  ).
+
+    CLEAR ms_entry_in.
+    LOOP AT lt_key_tab REFERENCE INTO lr_name_value_line.
+      CASE lr_name_value_line->name.
+        WHEN 'Name'.
+          ms_entry_in-name = lr_name_value_line->value.
+        WHEN OTHERS.
+
+      ENDCASE.
+    ENDLOOP.
+
+    SELECT * FROM ztwa001_varid
+        INTO TABLE lt_var_id
+        WHERE var_name = ms_entry_in-name
+          .
+
+    fill_stat_by_head( EXPORTING it_var_id       = lt_var_id
+                       CHANGING  ct_var_head_set = lt_entry_tab ).
+
+
+    MOVE-CORRESPONDING VALUE #( lt_entry_tab[ 1 ] OPTIONAL ) TO es .
+
+  ENDMETHOD.
+
+
+  METHOD zif_wa003_entity_feeder~set_batch_tab.
+
+  ENDMETHOD.
+
+
+  METHOD zif_wa003_entity_feeder~set_odata_in.
+    mo_odata_in ?= io_odata_in.
+  ENDMETHOD.
+
+
+  METHOD zif_wa003_entity_feeder~u.
+    DATA lv_msg_bapi TYPE bapi_msg.
+    CLEAR ms_entry_in.
+
+    mo_odata_in->get_data_provider( )->read_entry_data( IMPORTING es_data = ms_entry_in ).
+
+    "" проверка, что запись не существует
+    IF if_record_exist( ms_entry_in ) EQ abap_false.
+      "MESSAGE x000(cl) WITH 'Entry exists'.
+      MESSAGE s000(cl) WITH 'Entry DOES not exist' 'Not for updation' INTO lv_msg_bapi.
+      raise_exception2odata( lv_msg_bapi ).
+    ENDIF.
+
+
+    """"""""""""""""""""""""""""""""""""""""
+    DATA lt_var_id4db TYPE ztwa001_varid_tab.
+    FIELD-SYMBOLS <fs_var_id> TYPE ztwa001_varid.
+
+    GET TIME.
+    APPEND INITIAL LINE TO lt_var_id4db ASSIGNING <fs_var_id>.
+    MOVE-CORRESPONDING ms_entry_in TO <fs_var_id>.
+    <fs_var_id>-var_name = ms_entry_in-name.
+    <fs_var_id>-var_desc = ms_entry_in-description.
+    <fs_var_id>-var_type = ms_entry_in-var_type.
+    <fs_var_id>-is_debug_on = ms_entry_in-debug_is_on.
+    <fs_var_id>-is_del = ms_entry_in-is_del.
+*    <fs_var_id>-crd = sy-datum.
+*    <fs_var_id>-crt = sy-uzeit.
+*    <fs_var_id>-cru = cl_abap_syst=>get_user_name( ).
+    <fs_var_id>-chd = sy-datum.
+    <fs_var_id>-cht = sy-uzeit.
+    <fs_var_id>-chu = cl_abap_syst=>get_user_name( ).
+
+    save2db( lt_var_id4db ).
+
+    ms_entry_in-chd =  <fs_var_id>-chd.
+    ms_entry_in-cht =  <fs_var_id>-cht.
+    ms_entry_in-chu =  <fs_var_id>-chu.
+    MOVE-CORRESPONDING ms_entry_in TO es.
+  ENDMETHOD.
 ENDCLASS.
