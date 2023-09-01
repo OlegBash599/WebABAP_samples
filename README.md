@@ -21,6 +21,8 @@
 ### Ext-addition:
 1) [Alternatives to Postman for Exploratory and Automated API Testing by Klaus Haeuptle](https://blogs.sap.com/2023/08/17/alternatives-to-postman-for-exploratory-and-automated-api-testing/)
 2) [HTTP-tools for testing](https://thechief.io/c/editorial/top-10-http-benchmarking-and-load-testing-tools/)
+3) https://blogs.sap.com/2023/08/17/testing-api-calls-using-your-edge-chrome/
+4) https://blogs.sap.com/2023/08/17/test-isolation-in-abap-made-simple/
 
 ====english version below ======
 # WebABAP: developing odata-services and web services in NetWeaver
