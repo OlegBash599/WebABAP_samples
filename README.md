@@ -18,6 +18,10 @@
 [ABAP-club чат](https://t.me/ABAPclub)
 
 
+### Ext-addition:
+1) [Alternatives To postman](https://blogs.sap.com/2023/08/17/alternatives-to-postman-for-exploratory-and-automated-api-testing/)
+2) [HTTP-tools for testing](https://thechief.io/c/editorial/top-10-http-benchmarking-and-load-testing-tools/)
+
 ====english version below ======
 # WebABAP: developing odata-services and web services in NetWeaver
 Samples for webinar WebABAP
