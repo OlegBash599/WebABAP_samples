@@ -10,10 +10,12 @@
 2) Пример коллекции postman для прогона тестирования
 
 
+
 ## Видео к мини-вебинару
 https://sappro.sapland.ru/kb/webinars/testirovanie-crudq-operatsii-v-sap-gateway-i-unit-testirovanie-v-odata-v2.html
 
-
+## что-то непонятно/недосказано или хочется высказаться?
+[ABAP-club чат](https://t.me/ABAPclub)
 
 
 ====english version below ======
