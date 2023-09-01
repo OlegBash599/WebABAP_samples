@@ -11,7 +11,7 @@
 
 
 ## Видео к мини-вебинару
-[MiniWebinar Video](https://sappro.sapland.ru/kb/webinars/testirovanie-crudq-operatsii-v-sap-gateway-i-unit-testirovanie-v-odata-v2.html)
+[MiniWebinar Video](https://sappro.sapland.ru/kb/webinars/testirovanie-crudq-operatsii-v-sap-gateway-i-unit-testirovanie-v-odata-v2.html){:target="_blank"}
 
 ## что-то непонятно/недосказано или хочется высказаться?
 [ABAP-club чат](https://t.me/ABAPclub)
