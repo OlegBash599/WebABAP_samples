@@ -2,3 +2,11 @@
 
 1) использование переменных: https://learning.postman.com/docs/sending-requests/variables/
 2) написание скриптов в среде postman (язык javascript) https://learning.postman.com/docs/writing-scripts/script-references/postman-sandbox-api-reference/#scripting-with-response-data
+3) испорт коллекции выполняется так: https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-and-exporting-overview/
+4) можно тестировать под нагрузкой
+
+### Пример в коллекции:
+1) простой запрос метаданных и сущности (GET_ENTITY и GET_ENTITYSET)
+2) проверка на значение через postman-скрипт
+3) отправка POST-запроса с получением csrf-токена в  pre-request части
+4) использование переменных для HOST / PORT / username/password и т.д.
