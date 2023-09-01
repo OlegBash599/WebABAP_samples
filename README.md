@@ -7,7 +7,7 @@
 5) [Колонка по Webinar на sapland.ru](https://sappro.sapland.ru/author-column/20772)
 
 ## Мини-вебинар:
-1) Пример unit-теста для сущности
+1) Пример [unit-теста для сущности](https://github.com/OlegBash599/WebABAP_samples/blob/master/src/zwa003/zcl_wa003_var_head_feed.clas.testclasses.abap)
 2) [Пример коллекции postman для прогона тестирования](https://github.com/OlegBash599/WebABAP_samples/tree/master/PostMan_samples)
 
 
