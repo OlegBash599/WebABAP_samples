@@ -13,6 +13,8 @@
 
 ## Видео к мини-вебинару
 [MiniWebinar Video](https://sappro.sapland.ru/kb/webinars/testirovanie-crudq-operatsii-v-sap-gateway-i-unit-testirovanie-v-odata-v2.html)
+[Справочный материал для изучения и справки](https://www.olegbash.ru/WebABAP/MiniWebinar_ODATAtesting.zip)
+
 
 ## что-то непонятно/недосказано или хочется высказаться?
 1) [ABAP-club чат](https://t.me/ABAPclub)
