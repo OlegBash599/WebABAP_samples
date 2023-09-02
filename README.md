@@ -15,7 +15,8 @@
 [MiniWebinar Video](https://sappro.sapland.ru/kb/webinars/testirovanie-crudq-operatsii-v-sap-gateway-i-unit-testirovanie-v-odata-v2.html)
 
 ## что-то непонятно/недосказано или хочется высказаться?
-[ABAP-club чат](https://t.me/ABAPclub)
+1) [ABAP-club чат](https://t.me/ABAPclub)
+2) не на все вопросы могут быть даны ответы сразу: в таких случаях открываются [issue](https://github.com/OlegBash599/WebABAP_samples/issues)
 
 
 ### Ext-addition:
