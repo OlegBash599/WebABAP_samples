@@ -26,6 +26,7 @@
 2) [HTTP-tools for testing](https://thechief.io/c/editorial/top-10-http-benchmarking-and-load-testing-tools/)
 3) https://blogs.sap.com/2023/08/17/testing-api-calls-using-your-edge-chrome/
 4) https://blogs.sap.com/2023/08/17/test-isolation-in-abap-made-simple/
+5) [Foreing ABAP unit test](https://blogs.sap.com/2023/09/12/writing-foreign-abap-unit-tests/)
 
 ====english version below ======
 # WebABAP: developing odata-services and web services in NetWeaver
