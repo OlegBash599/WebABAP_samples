@@ -9,6 +9,7 @@
 ## Мини-вебинар:
 1) Пример [unit-теста для сущности](https://github.com/OlegBash599/WebABAP_samples/blob/master/src/zwa003/zcl_wa003_var_head_feed.clas.testclasses.abap)
 2) [Пример коллекции postman для прогона тестирования](https://github.com/OlegBash599/WebABAP_samples/tree/master/PostMan_samples)
+3) [Выбираем подходящую модель OData-разработки для системы](https://blogs.sap.com/2022/01/22/howto-odata-high-level-overview/)
 
 
 ## Видео и чтение к мини-вебинару
