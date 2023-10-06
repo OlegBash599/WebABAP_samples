@@ -28,6 +28,9 @@
 4) https://blogs.sap.com/2023/08/17/test-isolation-in-abap-made-simple/
 5) [Foreing ABAP unit test](https://blogs.sap.com/2023/09/12/writing-foreign-abap-unit-tests/)
 
+### Практики других направлений
+1) [Google, среди прочего, советует composition over inheritance](https://www.youtube.com/watch?v=6lU11IHfJgo)
+
 ====english version below ======
 # WebABAP: developing odata-services and web services in NetWeaver
 Samples for webinar WebABAP
