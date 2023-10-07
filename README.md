@@ -15,6 +15,7 @@
 ## Видео и чтение к мини-вебинару
 1) [MiniWebinar Video](https://sappro.sapland.ru/kb/webinars/testirovanie-crudq-operatsii-v-sap-gateway-i-unit-testirovanie-v-odata-v2.html)
 2) [Справочный материал для изучения и справки](https://www.olegbash.ru/WebABAP/MiniWebinar_ODATAtesting.zip)
+3) [Postman useful scripts](https://blogs.aboutatul.in/some-common-test-scripts-in-postman)
 
 
 ## что-то непонятно/недосказано или хочется высказаться?
