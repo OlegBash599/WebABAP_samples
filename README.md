@@ -29,6 +29,8 @@
 3) https://blogs.sap.com/2023/08/17/testing-api-calls-using-your-edge-chrome/
 4) https://blogs.sap.com/2023/08/17/test-isolation-in-abap-made-simple/
 5) [Foreing ABAP unit test](https://blogs.sap.com/2023/09/12/writing-foreign-abap-unit-tests/)
+6) [ABAP Unit Fundamentals](https://blogs.sap.com/2019/12/20/understanding-abap-unit-testing-fundamentals-overview-for-beginners/)
+7) [Writing ABAP Unit using test double](https://blogs.sap.com/2023/10/16/writing-abap-a-unit-using-test-double-frameworkdoc/)
 
 ### Практики других направлений
 1) [Google, среди прочего, советует composition over inheritance](https://www.youtube.com/watch?v=6lU11IHfJgo)
