@@ -31,6 +31,7 @@
 5) [Foreing ABAP unit test](https://blogs.sap.com/2023/09/12/writing-foreign-abap-unit-tests/)
 6) [ABAP Unit Fundamentals](https://blogs.sap.com/2019/12/20/understanding-abap-unit-testing-fundamentals-overview-for-beginners/)
 7) [Writing ABAP Unit using test double](https://blogs.sap.com/2023/10/16/writing-abap-a-unit-using-test-double-frameworkdoc/)
+8) Offical sap.help about SAP GateWay (https://help.sap.com/docs/ABAP_PLATFORM_NEW/68bf513362174d54b58cddec28794093/7db1ea508f88bb7ee10000000a445394.html)
 
 ### Практики других направлений
 1) [Google, среди прочего, советует composition over inheritance](https://www.youtube.com/watch?v=6lU11IHfJgo)
