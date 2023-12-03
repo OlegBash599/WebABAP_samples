@@ -6,7 +6,7 @@
 >
   <rect width="100%" height="100%" fill="Maroon" rx="5" ry="5" />
   <text font-size="24" x="10" y="20" >
-    <tspan fill="LightCyan" >Educationl purposes</tspan>,
+    <tspan fill="LightCyan" >Educational purposes</tspan>,
     <tspan fill="Beige">Samples Collection</tspan>
   </text>
 </svg>
