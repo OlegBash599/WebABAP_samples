@@ -1,5 +1,6 @@
 # Вебинар WebABAP: разработка odata-сервисов
 <img src="https://github.com/OlegBash599/WebABAP_samples/blob/master/lbl.svg"/>
+
 ## В репозитарии
 1) ODATA v2 Basic implementation in ABAP
 2) OData composition-based implementation
