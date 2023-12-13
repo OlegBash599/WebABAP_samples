@@ -23,6 +23,7 @@
 ## что-то непонятно/недосказано или хочется высказаться?
 1) [ABAP-club чат](https://t.me/ABAPclub)
 2) не на все вопросы могут быть даны ответы сразу: в таких случаях открываются [issue](https://github.com/OlegBash599/WebABAP_samples/issues)
+3) Создание сервиса на основе CDS и сущностей сервиса на основе CDS (pdf_doc)(https://olegbash.ru/f1/pW8)
 
 
 ### Ext-addition:
