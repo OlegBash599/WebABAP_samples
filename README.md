@@ -40,6 +40,7 @@
 9) [pyodata from SAP official team](https://github.com/SAP/python-pyodata) Можно задействовать при нагрузочном тестировании прототипировании
 10) [useful tips about netWeaver and UI5](https://blogs.sap.com/2016/04/30/my-ui5-debugging-tips-and-experience-collection-how-to-resolve-ui5-issues-through-debugging-by-yourself/)
 11) [Bruno - tool for testing](https://github.com/usebruno/bruno)
+12) [OData query options / sap help](https://help.sap.com/docs/ABAP_PLATFORM_NEW/68bf513362174d54b58cddec28794093/30116c10d4ff42908d4a4ad023b77634.html)
 
 ### Практики других направлений
 1) [Google, среди прочего, советует composition over inheritance](https://www.youtube.com/watch?v=6lU11IHfJgo)
