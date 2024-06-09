@@ -39,6 +39,7 @@
 8) Offical sap.help about SAP GateWay (https://help.sap.com/docs/ABAP_PLATFORM_NEW/68bf513362174d54b58cddec28794093/7db1ea508f88bb7ee10000000a445394.html)
 9) [pyodata from SAP official team](https://github.com/SAP/python-pyodata) Можно задействовать при нагрузочном тестировании прототипировании
 10) [useful tips about netWeaver and UI5](https://blogs.sap.com/2016/04/30/my-ui5-debugging-tips-and-experience-collection-how-to-resolve-ui5-issues-through-debugging-by-yourself/)
+11) [Bruno - tool for testing](https://github.com/usebruno/bruno)
 
 ### Практики других направлений
 1) [Google, среди прочего, советует composition over inheritance](https://www.youtube.com/watch?v=6lU11IHfJgo)
