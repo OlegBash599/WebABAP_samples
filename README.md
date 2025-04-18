@@ -21,6 +21,9 @@
 3) [Postman useful scripts](https://blogs.aboutatul.in/some-common-test-scripts-in-postman)
 4) Видео "на ход ноги" [8 заметок OData](https://sappro.sapland.ru/publications/sap-gateway-odata-8-poleznyh-zametok-na-hod-nogi.html) и [видео на дзене](https://dzen.ru/video/watch/6654d7b65b3bc47acbf0f6c1)
 
+## по Odata-V4
+1) [SAP Gateway Foundation - OData V4 Code-based Implementation Samples](https://github.com/SAP-samples/gateway-odata-v4)
+2) [Заметка Ivan Vashchenko](https://github.com/Via04/odatav4-guide)
 
 ## что-то непонятно/недосказано или хочется высказаться?
 1) [ABAP-club чат](https://t.me/ABAPclub)
