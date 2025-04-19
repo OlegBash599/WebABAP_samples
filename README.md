@@ -24,7 +24,7 @@
 ## по Odata-V4 и FioriElements в VScode
 1) [SAP Gateway Foundation - OData V4 Code-based Implementation Samples](https://github.com/SAP-samples/gateway-odata-v4)
 2) [Заметка Ivan Vashchenko](https://github.com/Via04/odatav4-guide)
-3) []()
+3) [SAP learning - creating V4 services](https://learning.sap.com/learning-journeys/getting-started-with-creating-an-sap-fiori-elements-app-based-on-an-odata-v4-rap-service/creating-an-odata-v4-service)
 
 ## что-то непонятно/недосказано или хочется высказаться?
 1) [ABAP-club чат](https://t.me/ABAPclub)
