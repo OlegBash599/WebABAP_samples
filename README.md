@@ -33,6 +33,11 @@
 9) [How to Create RAP Business Events in SAP S/4HANA On Premise 2022](https://community.sap.com/t5/technology-blogs-by-sap/how-to-create-rap-business-events-in-sap-s-4hana-on-premise-2022/ba-p/13553312)
 10) [vs code for on-premise with cloud connector](https://www.mindsetconsulting.com/visual-studio-code-abap-on-premise-system-destination-system-cloud-connector/)
 11) [fiori elements extension](https://sapui5.hana.ondemand.com/#/topic/dd78acad2f164560ad6b0e24ed2cd8ee)
+12) [deploy fiori app](https://github.com/SAP/open-ux-tools/tree/main/packages/deploy-tooling#configuration-with-logging-enabled)
+also remember - without Y-input
+```
+echo 'Y' | npm run deploy
+```
 
 ## что-то непонятно/недосказано или хочется высказаться?
 1) [ABAP-club чат](https://t.me/ABAPclub)
@@ -53,11 +58,7 @@
 10) [useful tips about netWeaver and UI5](https://blogs.sap.com/2016/04/30/my-ui5-debugging-tips-and-experience-collection-how-to-resolve-ui5-issues-through-debugging-by-yourself/)
 11) [Bruno - tool for testing](https://github.com/usebruno/bruno)
 12) [OData query options / sap help](https://help.sap.com/docs/ABAP_PLATFORM_NEW/68bf513362174d54b58cddec28794093/30116c10d4ff42908d4a4ad023b77634.html)
-13) [deploy fiori app](https://github.com/SAP/open-ux-tools/tree/main/packages/deploy-tooling#configuration-with-logging-enabled)
-also remember - without Y-input
-```
-echo 'Y' | npm run deploy
-```
+
 
 ### Практики других направлений
 1) [Google, среди прочего, советует composition over inheritance](https://www.youtube.com/watch?v=6lU11IHfJgo)
