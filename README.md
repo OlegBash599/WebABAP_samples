@@ -27,6 +27,11 @@
 3) [SAP learning - creating V4 services](https://learning.sap.com/learning-journeys/getting-started-with-creating-an-sap-fiori-elements-app-based-on-an-odata-v4-rap-service/creating-an-odata-v4-service)
 4) [Deal with self-signed certificate Option1](https://stackoverflow.com/questions/36506539/how-do-i-get-visual-studio-code-to-trust-our-self-signed-proxy-certificate) ; [Option2](https://stackoverflow.com/questions/75784380/how-to-provide-vs-code-with-a-self-signed-certificate-in-order-to-connect-with-s)
 5) [Teched20 - exercise](https://github.com/SAP-archive/teched2020-DEV260/tree/main/exercises/ex0)
+6) [OData V4 Service Catalog](https://community.sap.com/t5/technology-blogs-by-sap/odata-v4-service-catalog/ba-p/13477068)
+7) [SAP Fiori Mockups/Figma](https://www.youtube.com/watch?v=OozwNvecMWc)
+8) [ABAP Cloud Developer Trial 2022 Available Now](https://community.sap.com/t5/technology-blogs-by-sap/abap-cloud-developer-trial-2022-available-now/ba-p/13598069)
+9) [How to Create RAP Business Events in SAP S/4HANA On Premise 2022](https://community.sap.com/t5/technology-blogs-by-sap/how-to-create-rap-business-events-in-sap-s-4hana-on-premise-2022/ba-p/13553312)
+10) [vs code for on-premise with cloud connector](https://www.mindsetconsulting.com/visual-studio-code-abap-on-premise-system-destination-system-cloud-connector/)
 
 ## что-то непонятно/недосказано или хочется высказаться?
 1) [ABAP-club чат](https://t.me/ABAPclub)
