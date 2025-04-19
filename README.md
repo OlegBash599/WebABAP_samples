@@ -38,6 +38,9 @@ also remember - without Y-input
 ```
 echo 'Y' | npm run deploy
 ```
+13) [Create Database Table and Generate UI Service](https://developers.sap.com/tutorials/abap-environment-rap100-generate-ui-service.html)
+
+
 
 ## что-то непонятно/недосказано или хочется высказаться?
 1) [ABAP-club чат](https://t.me/ABAPclub)
