@@ -39,6 +39,7 @@ also remember - without Y-input
 echo 'Y' | npm run deploy
 ```
 13) [Create Database Table and Generate UI Service](https://developers.sap.com/tutorials/abap-environment-rap100-generate-ui-service.html)
+14) [Getting Ready for UI5 Development with Visual Studio Code](https://community.sap.com/t5/technology-blogs-by-sap/getting-ready-for-ui5-development-with-visual-studio-code/ba-p/13498045)
 
 
 
