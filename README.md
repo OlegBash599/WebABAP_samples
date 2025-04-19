@@ -25,7 +25,7 @@
 1) [SAP Gateway Foundation - OData V4 Code-based Implementation Samples](https://github.com/SAP-samples/gateway-odata-v4)
 2) [Заметка Ivan Vashchenko](https://github.com/Via04/odatav4-guide)
 3) [SAP learning - creating V4 services](https://learning.sap.com/learning-journeys/getting-started-with-creating-an-sap-fiori-elements-app-based-on-an-odata-v4-rap-service/creating-an-odata-v4-service)
-4) [Deal with self-signed certificate](https://stackoverflow.com/questions/36506539/how-do-i-get-visual-studio-code-to-trust-our-self-signed-proxy-certificate)
+4) [Deal with self-signed certificate Option1](https://stackoverflow.com/questions/36506539/how-do-i-get-visual-studio-code-to-trust-our-self-signed-proxy-certificate) ; [Option2](https://stackoverflow.com/questions/75784380/how-to-provide-vs-code-with-a-self-signed-certificate-in-order-to-connect-with-s)
 
 ## что-то непонятно/недосказано или хочется высказаться?
 1) [ABAP-club чат](https://t.me/ABAPclub)
