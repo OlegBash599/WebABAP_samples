@@ -62,6 +62,7 @@ echo 'Y' | npm run deploy
 10) [useful tips about netWeaver and UI5](https://blogs.sap.com/2016/04/30/my-ui5-debugging-tips-and-experience-collection-how-to-resolve-ui5-issues-through-debugging-by-yourself/)
 11) [Bruno - tool for testing](https://github.com/usebruno/bruno)
 12) [OData query options / sap help](https://help.sap.com/docs/ABAP_PLATFORM_NEW/68bf513362174d54b58cddec28794093/30116c10d4ff42908d4a4ad023b77634.html)
+13) [ABAP CDS User Guied - Access Control](https://help.sap.com/docs/abap-cloud/abap-cds-tools-user-guide/access-controls?version=sap_btp)
 
 
 ### Практики других направлений
