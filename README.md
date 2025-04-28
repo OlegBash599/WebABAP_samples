@@ -42,6 +42,7 @@ echo 'Y' | npm run deploy
 14) [Getting Ready for UI5 Development with Visual Studio Code](https://community.sap.com/t5/technology-blogs-by-sap/getting-ready-for-ui5-development-with-visual-studio-code/ba-p/13498045)
 15) [Overview Page Annotation](https://github.com/SAP-docs/sapui5/blob/main/docs/06_SAP_Fiori_Elements/annotations-used-in-overview-pages-65731e6.md)
 16) [LOading Behavior at StartApp](https://ui5.sap.com/#/topic/9f4e1192f1384b85bc160288e17f69c4)
+17) [odata v4 from ui5](https://community.sap.com/t5/technology-blogs-by-members/enhancing-flexibility-with-odata-v4-calls-from-the-controller-in-sap-ui5/ba-p/13880825)
 
 
 ## что-то непонятно/недосказано или хочется высказаться?
