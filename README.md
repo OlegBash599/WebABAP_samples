@@ -43,6 +43,7 @@ echo 'Y' | npm run deploy
 15) [Overview Page Annotation](https://github.com/SAP-docs/sapui5/blob/main/docs/06_SAP_Fiori_Elements/annotations-used-in-overview-pages-65731e6.md)
 16) [LOading Behavior at StartApp](https://ui5.sap.com/#/topic/9f4e1192f1384b85bc160288e17f69c4)
 17) [odata v4 from ui5](https://community.sap.com/t5/technology-blogs-by-members/enhancing-flexibility-with-odata-v4-calls-from-the-controller-in-sap-ui5/ba-p/13880825)
+18) [Action Import in OData V4](https://stackoverflow.com/questions/70204048/how-to-send-a-post-request-to-odata-v4-actionimport-with-sapui5)
 
 
 ## что-то непонятно/недосказано или хочется высказаться?
