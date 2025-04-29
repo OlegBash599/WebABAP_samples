@@ -45,6 +45,7 @@ echo 'Y' | npm run deploy
 17) [odata v4 from ui5](https://community.sap.com/t5/technology-blogs-by-members/enhancing-flexibility-with-odata-v4-calls-from-the-controller-in-sap-ui5/ba-p/13880825)
 18) [Action Import in OData V4](https://stackoverflow.com/questions/70204048/how-to-send-a-post-request-to-odata-v4-actionimport-with-sapui5)
 19) [testing in VScode for Fiori](https://community.sap.com/t5/technology-blogs-by-members/ui5-tooling-custom-server-middleware-proxy-extension/ba-p/13412802) and [OData operations bound](https://github.com/SAP-docs/sapui5/blob/main/docs/04_Essentials/odata-operations-b54f789.md)
+20) [Odata V4 show cases](https://github.com/SAP-samples/fiori-elements-feature-showcase/blob/main/README.md#custom-actions-global-list-report)
 
 
 ## что-то непонятно/недосказано или хочется высказаться?
