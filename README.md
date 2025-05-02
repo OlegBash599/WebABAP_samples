@@ -48,6 +48,7 @@ echo 'Y' | npm run deploy
 20) [Odata V4 show cases](https://github.com/SAP-samples/fiori-elements-feature-showcase/blob/main/README.md#custom-actions-global-list-report)
 21) [Invoke actions via Extension API](https://community.sap.com/t5/technology-q-a/fiori-elements-call-invokeactions-via-extensionapi-and-odata-v4/qaq-p/12452118)
 22) [odata test applications](https://help.sap.com/doc/saphelp_nw75/7.5.5/en-US/c7/0a898058f34024bfe9bffc43b3904c/frameset.htm)
+23) [value help in sap fiori](https://openui5.hana.ondemand.com/entity/sap.ui.mdc.ValueHelp/sample/sap.ui.mdc.demokit.sample.FieldValueHelpTypes/code)
 
 
 
