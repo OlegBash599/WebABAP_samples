@@ -49,6 +49,8 @@ echo 'Y' | npm run deploy
 21) [Invoke actions via Extension API](https://community.sap.com/t5/technology-q-a/fiori-elements-call-invokeactions-via-extensionapi-and-odata-v4/qaq-p/12452118)
 22) [odata test applications](https://help.sap.com/doc/saphelp_nw75/7.5.5/en-US/c7/0a898058f34024bfe9bffc43b3904c/frameset.htm)
 23) [value help in sap fiori](https://openui5.hana.ondemand.com/entity/sap.ui.mdc.ValueHelp/sample/sap.ui.mdc.demokit.sample.FieldValueHelpTypes/code)
+24) [forms in ui5](https://sapui5.hana.ondemand.com/sdk/#/entity/sap.ui.layout.form.Form/sample/sap.ui.layout.sample.Form354wide/code)
+25) [how to set focus on field](https://help.sap.com/docs/SAP_NETWEAVER_740/468a97775123488ab3345a0c48cadd8f/91f19f036f4d1014b6dd926db0e91070.html#example)
 
 
 
