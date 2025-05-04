@@ -52,6 +52,9 @@ echo 'Y' | npm run deploy
 24) [forms in ui5](https://sapui5.hana.ondemand.com/sdk/#/entity/sap.ui.layout.form.Form/sample/sap.ui.layout.sample.Form354wide/code)
 25) [how to set focus on field](https://help.sap.com/docs/SAP_NETWEAVER_740/468a97775123488ab3345a0c48cadd8f/91f19f036f4d1014b6dd926db0e91070.html#example)
 26) [Fiori Launchpad Configuration](https://help.sap.com/docs/ABAP_PLATFORM_NEW/a7b390faab1140c087b8926571e942b7/af35d42e7d4f49d7b8e46080cd01c299.html?locale=en-US)
+27) [odata operations](https://github.com/SAP-docs/sapui5/blob/main/docs/04_Essentials/odata-operations-b54f789.md)
+28) [accessing data in controller](https://github.com/SAP-docs/sapui5/blob/main/docs/04_Essentials/accessing-data-in-controller-code-17b30ac.md)
+29) [configuring filter bar](https://github.com/SAP-docs/sapui5/blob/main/docs/06_SAP_Fiori_Elements/configuring-filter-bars-4bd7590.md)
 
 
 ## что-то непонятно/недосказано или хочется высказаться?
