@@ -55,6 +55,7 @@ echo 'Y' | npm run deploy
 27) [odata operations](https://github.com/SAP-docs/sapui5/blob/main/docs/04_Essentials/odata-operations-b54f789.md)
 28) [accessing data in controller](https://github.com/SAP-docs/sapui5/blob/main/docs/04_Essentials/accessing-data-in-controller-code-17b30ac.md)
 29) [configuring filter bar](https://github.com/SAP-docs/sapui5/blob/main/docs/06_SAP_Fiori_Elements/configuring-filter-bars-4bd7590.md)
+30) [adding table to object page](https://learning.sap.com/learning-journeys/getting-started-with-creating-an-sap-fiori-elements-app-based-on-an-odata-v4-rap-service/adding-a-table-to-the-object-page)
 
 
 ## что-то непонятно/недосказано или хочется высказаться?
