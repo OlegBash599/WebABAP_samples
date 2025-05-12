@@ -59,7 +59,7 @@ echo 'Y' | npm run deploy
 31) [reading through odata v4](https://learning.sap.com/learning-journeys/develop-sapui5-applications/reading-data-through-an-odata-model_e7de231b-e1ae-46f9-a298-14da24ef940b)
 32) [Comparison V2-V4 models](https://github.com/SAP/openui5-docs/blob/main/docs/04_Essentials/changes-compared-to-odata-v2-model-abd4d7c.md)
 33) [sap ui5 back button](https://learning.sap.com/learning-journeys/develop-sapui5-applications/routing-back_c9b9f625-a6c1-4b54-9d32-8196143d5ee5)
-
+34) [create tile / catalog in new app manager](https://community.sap.com/t5/technology-blog-posts-by-sap/sap-fiori-launchpad-app-manager-tool-available-for-sap-s-4hana-2020/ba-p/13483977)
 
 ## что-то непонятно/недосказано или хочется высказаться?
 1) [ABAP-club чат](https://t.me/ABAPclub)
