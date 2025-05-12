@@ -58,6 +58,7 @@ echo 'Y' | npm run deploy
 30) [adding table to object page](https://learning.sap.com/learning-journeys/getting-started-with-creating-an-sap-fiori-elements-app-based-on-an-odata-v4-rap-service/adding-a-table-to-the-object-page)
 31) [reading through odata v4](https://learning.sap.com/learning-journeys/develop-sapui5-applications/reading-data-through-an-odata-model_e7de231b-e1ae-46f9-a298-14da24ef940b)
 32) [Comparison V2-V4 models](https://github.com/SAP/openui5-docs/blob/main/docs/04_Essentials/changes-compared-to-odata-v2-model-abd4d7c.md)
+33) [sap ui5 back button](https://learning.sap.com/learning-journeys/develop-sapui5-applications/routing-back_c9b9f625-a6c1-4b54-9d32-8196143d5ee5)
 
 
 ## что-то непонятно/недосказано или хочется высказаться?
