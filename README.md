@@ -63,6 +63,12 @@ echo 'Y' | npm run deploy
 35) [sequence for RAP execution](https://help.sap.com/docs/abap-cloud/abap-rap/save-sequence-runtime)
 36) [how to deal several commits in RAP](https://community.sap.com/t5/technology-q-a/save-sequence-bapi-commit-issue-abap-restful-programming-on-premise/qaq-p/12135945)
 
+```
+validations for anno
+/IWBEP/CL_V4_ANNO_MODEL / validate_anno_targets( ).
+```
+
+
 ## что-то непонятно/недосказано или хочется высказаться?
 1) [ABAP-club чат](https://t.me/ABAPclub)
 2) не на все вопросы могут быть даны ответы сразу: в таких случаях открываются [issue](https://github.com/OlegBash599/WebABAP_samples/issues)
