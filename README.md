@@ -62,6 +62,7 @@ echo 'Y' | npm run deploy
 34) [create tile / catalog in new app manager](https://community.sap.com/t5/technology-blog-posts-by-sap/sap-fiori-launchpad-app-manager-tool-available-for-sap-s-4hana-2020/ba-p/13483977)
 35) [sequence for RAP execution](https://help.sap.com/docs/abap-cloud/abap-rap/save-sequence-runtime)
 36) [how to deal several commits in RAP](https://community.sap.com/t5/technology-q-a/save-sequence-bapi-commit-issue-abap-restful-programming-on-premise/qaq-p/12135945)
+37) [annotation for hiding elemnts](https://sapui5.hana.ondemand.com/sdk/#/topic/ca00ee45fe344a73998f482cb2e669bb)
 
 ```
 validations for anno
