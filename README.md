@@ -63,6 +63,7 @@ echo 'Y' | npm run deploy
 35) [sequence for RAP execution](https://help.sap.com/docs/abap-cloud/abap-rap/save-sequence-runtime)
 36) [how to deal several commits in RAP](https://community.sap.com/t5/technology-q-a/save-sequence-bapi-commit-issue-abap-restful-programming-on-premise/qaq-p/12135945)
 37) [annotation for hiding elemnts](https://sapui5.hana.ondemand.com/sdk/#/topic/ca00ee45fe344a73998f482cb2e669bb)
+38) (sap workbench theme for vs code)[https://github.com/iMilazzo/sap-workbech-vscode-theme]
 
 ```
 validations for anno
