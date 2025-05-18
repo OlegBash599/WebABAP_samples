@@ -69,7 +69,7 @@ echo 'Y' | npm run deploy
 validations for anno
 /IWBEP/CL_V4_ANNO_MODEL / validate_anno_targets( ).
 ```
-
+39) (list extension in navigation)[https://help.sap.com/docs/ABAP_PLATFORM_NEW/468a97775123488ab3345a0c48cadd8f/a12ad6058db84e8cb60a3a9b2ade63fb.html]
 
 ## что-то непонятно/недосказано или хочется высказаться?
 1) [ABAP-club чат](https://t.me/ABAPclub)
