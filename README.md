@@ -71,6 +71,7 @@ validations for anno
 ```
 39) (list extension in navigation)[https://help.sap.com/docs/ABAP_PLATFORM_NEW/468a97775123488ab3345a0c48cadd8f/a12ad6058db84e8cb60a3a9b2ade63fb.html]
 40) (basic annotation for LIST/Obj)[https://learning.sap.com/learning-journeys/develop-sapui5-applications/explaining-basic-annotations-for-list-report_c8d6bf77-22a0-40ce-87db-ef877ca26326]
+41) (header facet to obj page)[https://sapcodes.com/2020/07/15/fiori-element-adding-header-facet/] and (header info obj page)[https://developercertification.com/sap-fiori-cds-annotations-iv-how-to-add-information-to-object-page-header-with-annotations-part-2/]
 
 ## что-то непонятно/недосказано или хочется высказаться?
 1) [ABAP-club чат](https://t.me/ABAPclub)
