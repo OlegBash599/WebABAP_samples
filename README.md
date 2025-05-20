@@ -94,7 +94,8 @@ validations for anno
 61) (feature showcase)[https://github.com/SAP-samples/fiori-elements-feature-showcase]
 62) (odata vocabularies)[https://sap.github.io/odata-vocabularies/vocabularies/UI.html]
 63) (abap sequence run time)[https://help.sap.com/docs/abap-cloud/abap-rap/save-sequence-runtime]
-64) 
+64) (fiori - proxy middleware)[https://community.sap.com/t5/technology-blog-posts-by-members/ui5-tooling-custom-server-middleware-proxy-extension/ba-p/13412802]
+65) 
 
 
 ## что-то непонятно/недосказано или хочется высказаться?
