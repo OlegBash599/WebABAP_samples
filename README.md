@@ -78,6 +78,17 @@ validations for anno
 45) (learning navigation)[https://learning.sap.com/learning-journeys/develop-sapui5-applications/navigating-to-routes-with-hard-coded-patterns_cdcbec57-0d70-4f27-bc9e-d741721d4ca3]
 46) (git in application studio)[https://www.mindsetconsulting.com/working-with-git-in-the-business-application-studio/]
 47) (deploy cloud vs code / bas)[https://www.mindsetconsulting.com/deploying-a-cloud-application-programming-project-with-vs-code-vs-bas/]
+48) (https://www.mindsetconsulting.com/how-to-create-cds-views-using-hana-studio-eclipse/)[https://www.mindsetconsulting.com/how-to-create-cds-views-using-hana-studio-eclipse/]
+49) (https://www.mindsetconsulting.com/app-recommendations-in-sap-fiori-apps-library/)[https://www.mindsetconsulting.com/app-recommendations-in-sap-fiori-apps-library/]
+50) (https://www.mindsetconsulting.com/sap-web-ide-fiori-list-report-application-cds-views-cds-annotations-eclipse/)[https://www.mindsetconsulting.com/sap-web-ide-fiori-list-report-application-cds-views-cds-annotations-eclipse/]
+51) (https://www.mindsetconsulting.com/makes-stronger-sap-developers-survival-guide/)[https://www.mindsetconsulting.com/makes-stronger-sap-developers-survival-guide/]
+52) (https://www.mindsetconsulting.com/spaces-pages-fiori/)[https://www.mindsetconsulting.com/spaces-pages-fiori/]
+53) (https://www.mindsetconsulting.com/restful-abap-programming-model-fiori-rap/)[https://www.mindsetconsulting.com/restful-abap-programming-model-fiori-rap/]
+54) (https://www.mindsetconsulting.com/visual-studio-code-abap-on-premise-system-destination-system-cloud-connector/)[https://www.mindsetconsulting.com/visual-studio-code-abap-on-premise-system-destination-system-cloud-connector/]
+55) (https://www.mindsetconsulting.com/git-github-version-control/)[https://www.mindsetconsulting.com/git-github-version-control/]
+56) (https://www.mindsetconsulting.com/introduction-to-fiori-tools-part-1/)[https://www.mindsetconsulting.com/introduction-to-fiori-tools-part-1/]
+57) (https://www.mindsetconsulting.com/introduction-to-fiori-tools-part-2/)[https://www.mindsetconsulting.com/introduction-to-fiori-tools-part-2/]
+
 
 ## что-то непонятно/недосказано или хочется высказаться?
 1) [ABAP-club чат](https://t.me/ABAPclub)
