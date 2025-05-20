@@ -88,6 +88,13 @@ validations for anno
 55) (https://www.mindsetconsulting.com/git-github-version-control/)[https://www.mindsetconsulting.com/git-github-version-control/]
 56) (https://www.mindsetconsulting.com/introduction-to-fiori-tools-part-1/)[https://www.mindsetconsulting.com/introduction-to-fiori-tools-part-1/]
 57) (https://www.mindsetconsulting.com/introduction-to-fiori-tools-part-2/)[https://www.mindsetconsulting.com/introduction-to-fiori-tools-part-2/]
+58) (Adding Actions to Tables)[https://github.com/SAP-docs/sapui5/blob/main/docs/06_SAP_Fiori_Elements/adding-actions-to-tables-b623e0b.md]
+59) (how to modify object page)[https://developers.sap.com/tutorials/fiori-tools-cap-modify-object-page.html]
+60) (createing manifest for existing app)[https://github.com/SAP/openui5-docs/blob/main/docs/04_Essentials/creating-a-manifest-file-for-existing-apps-3a9baba.md]
+61) (feature showcase)[https://github.com/SAP-samples/fiori-elements-feature-showcase]
+62) (odata vocabularies)[https://sap.github.io/odata-vocabularies/vocabularies/UI.html]
+63) (abap sequence run time)[https://help.sap.com/docs/abap-cloud/abap-rap/save-sequence-runtime]
+64) 
 
 
 ## что-то непонятно/недосказано или хочется высказаться?
