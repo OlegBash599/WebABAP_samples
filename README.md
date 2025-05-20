@@ -75,6 +75,9 @@ validations for anno
 42) (mange docus app)[https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/#/detail/Apps('F0797')/S30PCE]
 43) (fiori showcases)[https://github.com/SAP-samples/abap-platform-fiori-feature-showcase/blob/main/02_list_report_header.md#filter-facets]
 44) (dynamic layout)[https://experience.sap.com/fiori-design-web/dynamic-page-layout/#header-title]
+45) (learning navigation)[https://learning.sap.com/learning-journeys/develop-sapui5-applications/navigating-to-routes-with-hard-coded-patterns_cdcbec57-0d70-4f27-bc9e-d741721d4ca3]
+46) (git in application studio)[https://www.mindsetconsulting.com/working-with-git-in-the-business-application-studio/]
+47) (deploy cloud vs code / bas)[https://www.mindsetconsulting.com/deploying-a-cloud-application-programming-project-with-vs-code-vs-bas/]
 
 ## что-то непонятно/недосказано или хочется высказаться?
 1) [ABAP-club чат](https://t.me/ABAPclub)
