@@ -95,7 +95,7 @@ validations for anno
 62) (odata vocabularies)[https://sap.github.io/odata-vocabularies/vocabularies/UI.html]
 63) (abap sequence run time)[https://help.sap.com/docs/abap-cloud/abap-rap/save-sequence-runtime]
 64) (fiori - proxy middleware)[https://community.sap.com/t5/technology-blog-posts-by-members/ui5-tooling-custom-server-middleware-proxy-extension/ba-p/13412802]
-65) 
+65) (annotation interface for odata v4)[https://help.sap.com/docs/ABAP_PLATFORM/68bf513362174d54b58cddec28794093/2b269e23338c451188485da0fdfc3f23.html]
 
 
 ## что-то непонятно/недосказано или хочется высказаться?
