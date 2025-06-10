@@ -97,7 +97,7 @@ validations for anno
 63) (abap sequence run time)[https://help.sap.com/docs/abap-cloud/abap-rap/save-sequence-runtime]
 64) (fiori - proxy middleware)[https://community.sap.com/t5/technology-blog-posts-by-members/ui5-tooling-custom-server-middleware-proxy-extension/ba-p/13412802]
 65) (annotation interface for odata v4)[https://help.sap.com/docs/ABAP_PLATFORM/68bf513362174d54b58cddec28794093/2b269e23338c451188485da0fdfc3f23.html]
-
+66) (un managed simplified)[https://www.erpqna.com/sap-rap-unmanaged-scenario-example-simplified/]
 
 ## что-то непонятно/недосказано или хочется высказаться?
 1) [ABAP-club чат](https://t.me/ABAPclub)
