@@ -60,6 +60,7 @@ echo 'Y' | npm run deploy
 32) [Comparison V2-V4 models](https://github.com/SAP/openui5-docs/blob/main/docs/04_Essentials/changes-compared-to-odata-v2-model-abd4d7c.md)
 33) [sap ui5 back button](https://learning.sap.com/learning-journeys/develop-sapui5-applications/routing-back_c9b9f625-a6c1-4b54-9d32-8196143d5ee5)
 34) [create tile / catalog in new app manager](https://community.sap.com/t5/technology-blog-posts-by-sap/sap-fiori-launchpad-app-manager-tool-available-for-sap-s-4hana-2020/ba-p/13483977)
+34_1) [ABAP restful programming model](https://help.sap.com/docs/abap-cloud/abap-rap/abap-restful-application-programming-model?locale=en-US&version=sap_btp)
 35) [sequence for RAP execution](https://help.sap.com/docs/abap-cloud/abap-rap/save-sequence-runtime)
 36) [how to deal several commits in RAP](https://community.sap.com/t5/technology-q-a/save-sequence-bapi-commit-issue-abap-restful-programming-on-premise/qaq-p/12135945)
 37) [annotation for hiding elemnts](https://sapui5.hana.ondemand.com/sdk/#/topic/ca00ee45fe344a73998f482cb2e669bb)
