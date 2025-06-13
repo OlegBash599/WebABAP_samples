@@ -100,6 +100,7 @@ validations for anno
 66) (un managed simplified)[https://www.erpqna.com/sap-rap-unmanaged-scenario-example-simplified/]
 67) (Using a Function Module in SAP RAP managed)[https://community.sap.com/t5/technology-q-a/using-a-function-module-in-sap-rap-managed/qaq-p/14083377]
 68) [Fiori wiki page](https://pages.community.sap.com/topics/fiori)
+69) [Flexible programming model](https://sapui5.hana.ondemand.com/test-resources/sap/fe/core/fpmExplorer/index.html#/overview/introduction)
 
 ## что-то непонятно/недосказано или хочется высказаться?
 1) [ABAP-club чат](https://t.me/ABAPclub)
