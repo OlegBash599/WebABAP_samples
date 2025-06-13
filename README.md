@@ -99,6 +99,7 @@ validations for anno
 65) (annotation interface for odata v4)[https://help.sap.com/docs/ABAP_PLATFORM/68bf513362174d54b58cddec28794093/2b269e23338c451188485da0fdfc3f23.html]
 66) (un managed simplified)[https://www.erpqna.com/sap-rap-unmanaged-scenario-example-simplified/]
 67) (Using a Function Module in SAP RAP managed)[https://community.sap.com/t5/technology-q-a/using-a-function-module-in-sap-rap-managed/qaq-p/14083377]
+68) [Fiori wiki page](https://pages.community.sap.com/topics/fiori)
 
 ## что-то непонятно/недосказано или хочется высказаться?
 1) [ABAP-club чат](https://t.me/ABAPclub)
@@ -120,6 +121,7 @@ validations for anno
 11) [Bruno - tool for testing](https://github.com/usebruno/bruno)
 12) [OData query options / sap help](https://help.sap.com/docs/ABAP_PLATFORM_NEW/68bf513362174d54b58cddec28794093/30116c10d4ff42908d4a4ad023b77634.html)
 13) [ABAP CDS User Guied - Access Control](https://help.sap.com/docs/abap-cloud/abap-cds-tools-user-guide/access-controls?version=sap_btp)
+14) 
 
 
 ### Практики других направлений
